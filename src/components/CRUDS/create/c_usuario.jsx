@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const C_usuario = () => {
     const [usuario, setUsuario] = useState({
@@ -51,40 +52,117 @@ const C_usuario = () => {
     };
 
     return (
-        <div>
-            <h2>Registro de Usuario</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <input type="text" name="nombre" placeholder="Nombre" value={usuario.nombre} onChange={handleChange} required />
-                    <input type="text" name="ap_pat" placeholder="Apellido Paterno" value={usuario.ap_pat} onChange={handleChange} required />
-                    <input type="text" name="ap_mat" placeholder="Apellido Materno" value={usuario.ap_mat} onChange={handleChange} required />
-                    <input type="tel" name="n_tel" placeholder="Teléfono" value={usuario.n_tel} onChange={handleChange} required />
-                    <select name="id_tipo" value={usuario.id_tipo} onChange={handleChange} required>
+        <div className="container mt-5">
+            <h2 className="text-center mb-4">Registro de Usuario</h2>
+            <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm">
+                <div className="mb-3">
+                    <input 
+                        type="text" 
+                        name="nombre" 
+                        placeholder="Nombre" 
+                        value={usuario.nombre} 
+                        onChange={handleChange} 
+                        required 
+                        className="form-control"
+                    />
+                </div>
+                <div className="mb-3">
+                    <input 
+                        type="text" 
+                        name="ap_pat" 
+                        placeholder="Apellido Paterno" 
+                        value={usuario.ap_pat} 
+                        onChange={handleChange} 
+                        required 
+                        className="form-control"
+                    />
+                </div>
+                <div className="mb-3">
+                    <input 
+                        type="text" 
+                        name="ap_mat" 
+                        placeholder="Apellido Materno" 
+                        value={usuario.ap_mat} 
+                        onChange={handleChange} 
+                        required 
+                        className="form-control"
+                    />
+                </div>
+                <div className="mb-3">
+                    <input 
+                        type="tel" 
+                        name="n_tel" 
+                        placeholder="Teléfono" 
+                        value={usuario.n_tel} 
+                        onChange={handleChange} 
+                        required 
+                        className="form-control"
+                    />
+                </div>
+                <div className="mb-3">
+                    <select 
+                        name="id_tipo" 
+                        value={usuario.id_tipo} 
+                        onChange={handleChange} 
+                        required 
+                        className="form-select"
+                    >
                         <option value="">Tipo de usuario</option>
                         <option value="1">Conductor</option>
                         <option value="2">Pasajero</option>
                         <option value="3">Administrador</option>
                     </select>
                 </div>
-                <div>
-                    {usuario.id_tipo === "1" && (
-                        <select name="id_vehiculo" value={usuario.id_vehiculo} onChange={handleChange} required>
-                            <option value="">Tipo de vehiculo</option>
+
+                {usuario.id_tipo === "1" && (
+                    <div className="mb-3">
+                        <select 
+                            name="id_vehiculo" 
+                            value={usuario.id_vehiculo} 
+                            onChange={handleChange} 
+                            required 
+                            className="form-select"
+                        >
+                            <option value="">Tipo de vehículo</option>
                             <option value="1">Automóvil</option>
                             <option value="2">Autobús</option>
                         </select>
-                    )}
-                    <input type="email" name="email" placeholder="Email" value={usuario.email} onChange={handleChange} required />
-                    <input type="password" name="password" placeholder="Contraseña" value={usuario.password} onChange={handleChange} required />
+                    </div>
+                )}
+
+                <div className="mb-3">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="Email" 
+                        value={usuario.email} 
+                        onChange={handleChange} 
+                        required 
+                        className="form-control"
+                    />
                 </div>
-                <button type="submit">Registrar Usuario</button>
+                <div className="mb-3">
+                    <input 
+                        type="password" 
+                        name="password" 
+                        placeholder="Contraseña" 
+                        value={usuario.password} 
+                        onChange={handleChange} 
+                        required 
+                        className="form-control"
+                    />
+                </div>
+
+                <button type="submit" className="btn btn-primary w-100 mb-3">
+                    Registrar Usuario
+                </button>
             </form>
 
             <button 
                 onClick={handleNavigate} 
-                
+                className="btn btn-secondary w-100"
             >
-                Insertar datos desde exel
+                Insertar datos desde Excel
             </button>
         </div>
     );

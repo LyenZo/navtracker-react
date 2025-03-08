@@ -1,8 +1,40 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import Ruta from "./ruta";
-import Menu_cruds from "./CRUDS/menu_cruds";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const Menu_cruds = () => {
+    return (
+        <div className="d-flex">
+            <div className="bg-dark text-white p-3 vh-100" style={{ width: "250px" }}>
+                <h4>Administrador</h4>
+                <ul className="nav flex-column">
+                    <li className="nav-item">
+                        <Link className="nav-link text-white" to="/r_punto">Puntos de Ruta</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link text-white" to="/r_rastreo">Rastreador</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link text-white" to="/r_ruta">Ruta</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link text-white" to="/r_tipo">Tipos de Usuario</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link text-white" to="/r_usuario">Usuarios</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link text-white" to="/r_vehiculo">Vehículos</Link>
+                    </li>
+                </ul>
+            </div>
+            <div className="container mt-5">
+                <Perfil />
+            </div>
+        </div>
+    );
+};
 
 const Perfil = () => {
     const [usuario, setUsuario] = useState(null);
@@ -31,30 +63,40 @@ const Perfil = () => {
     }, [navigate]);
 
     if (error) {
-        return <p>{error}</p>;
+        return <div className="alert alert-danger text-center">{error}</div>;
     }
 
     if (!usuario) {
-        return <p >Cargando perfil...</p>;
+        return <div className="text-center mt-5"><div className="spinner-border text-primary" role="status"></div><p>Cargando perfil...</p></div>;
     }
 
     return (
-        <div >
-            <h2 >Perfil de Usuario</h2>
-            <p><strong>Nombre:</strong> {usuario.nombre}</p>
-            <p><strong>Apellido Paterno:</strong> {usuario.ap_pat}</p>
-            <p><strong>Apellido Materno:</strong> {usuario.ap_mat}</p>
-            <p><strong>Número telefónico:</strong> {usuario.n_tel}</p>
-            <p><strong>Email:</strong> {usuario.email}</p>
-            <p><strong>Usuario:</strong> {usuario.id_tipo === 1 ? "Conductor" : usuario.id_tipo === 2 ? "Pasajero" : usuario.id_tipo === 3 ? "Administrador" : "Desconocido"}</p>
-            <button onClick={() => { localStorage.removeItem("token"); navigate("/"); }}
-                >
-                Cerrar Sesión
-            </button>
-            {usuario.id_tipo === 1 && <Ruta />}
-            {usuario.id_tipo === 3 && <Menu_cruds />}
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-8">
+                    <div className="card">
+                        <div className="card-body">
+                            <h2 className="text-center">Perfil de Usuario</h2>
+                            <ul className="list-group list-group-flush">
+                                <li className="list-group-item"><strong>Nombre:</strong> {usuario.nombre}</li>
+                                <li className="list-group-item"><strong>Apellido Paterno:</strong> {usuario.ap_pat}</li>
+                                <li className="list-group-item"><strong>Apellido Materno:</strong> {usuario.ap_mat}</li>
+                                <li className="list-group-item"><strong>Número telefónico:</strong> {usuario.n_tel}</li>
+                                <li className="list-group-item"><strong>Email:</strong> {usuario.email}</li>
+                                <li className="list-group-item"><strong>Usuario:</strong> {usuario.id_tipo === 1 ? "Conductor" : usuario.id_tipo === 2 ? "Pasajero" : usuario.id_tipo === 3 ? "Administrador" : "Desconocido"}</li>
+                            </ul>
+                            <button 
+                                className="btn btn-danger w-100 mt-3"
+                                onClick={() => { localStorage.removeItem("token"); navigate("/"); }}
+                            >
+                                Cerrar Sesión
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
 
-export default Perfil;
+export default Menu_cruds;

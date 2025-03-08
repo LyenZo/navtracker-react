@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //Home
-import Home from "./components/home";
+import Home from "./pages/home";
 //Create
 import C_usuario from "./components/CRUDS/create/c_usuario";
 import C_exel from "./components/CRUDS/create/c_exel";

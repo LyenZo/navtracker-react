@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import * as XLSX from 'xlsx'; 
 
 const R_tipo = () => {
     const [t_usuarios, setTusuarios] = useState([]);
@@ -20,32 +19,7 @@ const R_tipo = () => {
             .catch(error => console.error(error));
     };
 
-    // Función para manejar la carga del archivo Excel
-    const handleFileUpload = (e) => {
-        const file = e.target.files[0]; // Obtiene el archivo cargado
-        if (!file) return;
-
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            const binaryStr = event.target.result;
-            const wb = XLSX.read(binaryStr, { type: 'binary' });
-            const ws = wb.Sheets[wb.SheetNames[0]];
-            const data = XLSX.utils.sheet_to_json(ws); // Convierte la hoja en un array de objetos
-            
-            // Asegúrate de enviar los datos al servidor
-            axios.post('http://localhost:3001/api/u_tipo/importar', data)
-                .then(response => {
-                    setTusuarios(response.data); // Actualiza el estado con los datos importados
-                    alert('Datos importados correctamente!');
-                })
-                .catch(error => {
-                    console.error('Error al importar datos:', error);
-                    alert('Hubo un error al importar los datos');
-                });
-        };
-        reader.readAsBinaryString(file);
-    };
-
+    
     // Obtener los tipos de usuario actuales a mostrar según la página
     const indexOfLastUsuario = currentPage * usuariosPerPage;
     const indexOfFirstUsuario = indexOfLastUsuario - usuariosPerPage;
@@ -63,14 +37,6 @@ const R_tipo = () => {
     return (
         <div >
             <h2 >Lista de Tipos de Usuario</h2>
-            
-            {/* Botón para cargar el archivo Excel */}
-            <input 
-                type="file" 
-                accept=".xlsx, .xls" 
-                onChange={handleFileUpload} 
-            />
-
             <table >
                 <thead>
                     <tr >

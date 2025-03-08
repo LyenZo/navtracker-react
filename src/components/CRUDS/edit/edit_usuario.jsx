@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Edit_usuario = () => {
     const { id_u } = useParams();
@@ -36,24 +37,123 @@ const Edit_usuario = () => {
     };
 
     const handleRedirect = () => {
-        navigate("/c_usuario"); 
+        navigate("/r_usuario"); 
     };
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <h1>Editar Usuario</h1>
-                <input type="text" name="nombre" placeholder="Nombre" value={usuario.nombre} onChange={handleChange} required />
-                <input type="text" name="ap_pat" placeholder="Apellido Paterno" value={usuario.ap_pat} onChange={handleChange} required />
-                <input type="text" name="ap_mat" placeholder="Apellido Materno" value={usuario.ap_mat} onChange={handleChange} required />
-                <input type="text" name="id_tipo" placeholder="Usuario" value={usuario.id_tipo} onChange={handleChange} required />
-                <input type="text" name="id_vehiculo" placeholder="Vehiculo" value={usuario.id_vehiculo} onChange={handleChange} required />
-                <input type="email" name="email" placeholder="Email" value={usuario.email} onChange={handleChange} required />
-                <input type="password" name="password" placeholder="Contraseña" value={usuario.password} onChange={handleChange} required />
-                <button type="submit">Actualizar usuario</button>
-                <button type="button" onClick={handleRedirect}>Volver a usuarios</button>
+        <div className="container mt-5">
+            <h2 className="text-center mb-4">Editar Usuario</h2>
+            <form onSubmit={handleSubmit} className="p-4 border rounded shadow">
+                <div className="mb-3">
+                    <label htmlFor="nombre" className="form-label">Nombre</label>
+                    <input 
+                        type="text" 
+                        className="form-control" 
+                        id="nombre" 
+                        name="nombre" 
+                        placeholder="Nombre" 
+                        value={usuario.nombre} 
+                        onChange={handleChange} 
+                        required 
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="ap_pat" className="form-label">Apellido Paterno</label>
+                    <input 
+                        type="text" 
+                        className="form-control" 
+                        id="ap_pat" 
+                        name="ap_pat" 
+                        placeholder="Apellido Paterno" 
+                        value={usuario.ap_pat} 
+                        onChange={handleChange} 
+                        required 
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="ap_mat" className="form-label">Apellido Materno</label>
+                    <input 
+                        type="text" 
+                        className="form-control" 
+                        id="ap_mat" 
+                        name="ap_mat" 
+                        placeholder="Apellido Materno" 
+                        value={usuario.ap_mat} 
+                        onChange={handleChange} 
+                        required 
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="id_tipo" className="form-label">Tipo de Usuario</label>
+                    <input 
+                        type="text" 
+                        className="form-control" 
+                        id="id_tipo" 
+                        name="id_tipo" 
+                        placeholder="Tipo de Usuario" 
+                        value={usuario.id_tipo} 
+                        onChange={handleChange} 
+                        required 
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="id_vehiculo" className="form-label">Vehículo</label>
+                    <input 
+                        type="text" 
+                        className="form-control" 
+                        id="id_vehiculo" 
+                        name="id_vehiculo" 
+                        placeholder="Vehículo" 
+                        value={usuario.id_vehiculo} 
+                        onChange={handleChange} 
+                        required 
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Correo Electrónico</label>
+                    <input 
+                        type="email" 
+                        className="form-control" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Email" 
+                        value={usuario.email} 
+                        onChange={handleChange} 
+                        required 
+                    />
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Contraseña</label>
+                    <input 
+                        type="password" 
+                        className="form-control" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Contraseña" 
+                        value={usuario.password} 
+                        onChange={handleChange} 
+                        required 
+                    />
+                </div>
+
+                <div className="d-flex justify-content-between">
+                    <button type="submit" className="btn btn-primary">Actualizar Usuario</button>
+                    <button 
+                        type="button" 
+                        className="btn btn-secondary" 
+                        onClick={handleRedirect}
+                    >
+                        Volver a Usuarios
+                    </button>
+                </div>
             </form>
-        </>
+        </div>
     );
 };
 

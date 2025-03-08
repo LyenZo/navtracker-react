@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as XLSX from 'xlsx';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const C_exel = () => {
   const [file, setFile] = useState(null);
@@ -58,10 +59,28 @@ const C_exel = () => {
   };
 
   return (
-    <div>
-      <h2>Cargar datos desde Excel</h2>
-      <input type="file" accept=".xlsx, .xls" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Subir</button>
+    <div className="container mt-5">
+      <h2 className="text-center mb-4">Cargar datos desde Excel</h2>
+
+      <div className="mb-3">
+        <label htmlFor="fileInput" className="form-label">Selecciona el archivo Excel</label>
+        <input 
+          type="file" 
+          accept=".xlsx, .xls" 
+          className="form-control" 
+          onChange={handleFileChange} 
+          id="fileInput"
+        />
+      </div>
+
+      <div className="text-center">
+        <button 
+          onClick={handleUpload} 
+          className="btn btn-primary btn-lg"
+        >
+          Subir
+        </button>
+      </div>
     </div>
   );
 };
