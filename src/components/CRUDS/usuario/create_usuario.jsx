@@ -48,7 +48,7 @@ const C_usuario = () => {
     };
 
     const handleNavigate = () => {
-        navigate('/c_exel'); 
+        navigate('/excel_usuario'); 
     };
 
     return (

@@ -22,7 +22,7 @@ const RestablecerPassword = () => {
             });
 
             setMessage(response.data.message);
-            setTimeout(() => navigate("/login"), 3000);
+            setTimeout(() => navigate("/login"), 1000);
         } catch (error) {
             setMessage(error.response?.data?.error || "Error al restablecer contraseña.");
         }

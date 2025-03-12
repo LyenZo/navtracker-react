@@ -12,6 +12,7 @@ const Edit_usuario = () => {
         ap_mat: "",
         email: "",
         password: "",
+        n_tel:"",
         id_tipo: "",
         id_vehiculo: "",
     });
@@ -31,13 +32,13 @@ const Edit_usuario = () => {
         axios.put(`http://localhost:3001/api/usuario/${id_u}`, usuario)
         .then(() => {
             alert("Usuario actualizado");
-            navigate("/c_usuario"); 
+            navigate("/list_usuario"); 
         })
         .catch(error => console.error(error));
     };
 
     const handleRedirect = () => {
-        navigate("/r_usuario"); 
+        navigate("/list_usuario"); 
     };
 
     return (
@@ -127,21 +128,19 @@ const Edit_usuario = () => {
                         required 
                     />
                 </div>
-
                 <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Contraseña</label>
+                    <label htmlFor="n_tel" className="form-label">Número telefónico</label>
                     <input 
-                        type="password" 
+                        type="text" 
                         className="form-control" 
-                        id="password" 
-                        name="password" 
-                        placeholder="Contraseña" 
-                        value={usuario.password} 
+                        id="n_tel" 
+                        name="n_tel" 
+                        placeholder="Número telefónico" 
+                        value={usuario.n_tel} 
                         onChange={handleChange} 
                         required 
                     />
                 </div>
-
                 <div className="d-flex justify-content-between">
                     <button type="submit" className="btn btn-primary">Actualizar Usuario</button>
                     <button 

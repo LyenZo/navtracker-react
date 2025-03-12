@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as XLSX from 'xlsx';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const C_exel = () => {
+const Excel_usuario = () => {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -85,4 +85,4 @@ const C_exel = () => {
   );
 };
 
-export default C_exel;
+export default Excel_usuario;

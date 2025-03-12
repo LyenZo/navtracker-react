@@ -22,7 +22,7 @@ const N_global = () => {
                                 <Link className="nav-link" to="/login">Inicia Sesión</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/c_usuario">Regístrate</Link>
+                                <Link className="nav-link" to="/create_usuario">Regístrate</Link>
                             </li>
                         </ul>
                     </div>

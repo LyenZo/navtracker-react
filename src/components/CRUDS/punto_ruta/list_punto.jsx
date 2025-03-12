@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const R_punto = () => {
+const List_punto = () => {
     const [puntos, setPuntos] = useState([]);
     const [currentPage, setCurrentPage] = useState(1); 
     const [pointsPerPage, setPointsPerPage] = useState(5); 
@@ -57,7 +57,7 @@ const R_punto = () => {
                             <td >{punto.longitud}</td>
                             <td >{punto.direccion}</td>
                             <td >
-                                <Link to={`/editar_punto/${punto.id_punto}`}>
+                                <Link to={`/edit_punto/${punto.id_punto}`}>
                                     <button >Editar</button>
                                 </Link>
                             </td>
@@ -90,4 +90,4 @@ const R_punto = () => {
     );
 };
 
-export default R_punto;
+export default List_punto;

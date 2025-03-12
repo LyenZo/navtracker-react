@@ -34,7 +34,7 @@ const Edit_punto = () => {
     };
 
     const handleRedirect = () => {
-        navigate("/c_punto"); 
+        navigate("/crud_punto"); 
     };
 
     return (

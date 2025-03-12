@@ -215,7 +215,7 @@ const R_usuario = () => {
                                 <td>{usuario.id_tipo}</td>
                                 <td>{usuario.id_vehiculo}</td>
                                 <td>
-                                    <Link to={`/editar_usuario/${usuario.id_u}`} className="btn btn-warning btn-sm">
+                                    <Link to={`/edit_usuario/${usuario.id_u}`} className="btn btn-warning btn-sm">
                                         Editar
                                     </Link>
                                 </td>

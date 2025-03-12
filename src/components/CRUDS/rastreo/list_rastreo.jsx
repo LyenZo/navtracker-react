@@ -61,7 +61,7 @@ const R_rastreo = () => {
                             <td >{rastreo.fecha}</td>
                             <td >{rastreo.id_punto}</td>
                             <td >
-                                <Link to={`/editar_rastreo/${rastreo.id_rastreo}`}>
+                                <Link to={`/edit_rastreo/${rastreo.id_rastreo}`}>
                                     <button >Editar</button>
                                 </Link>
                             </td>

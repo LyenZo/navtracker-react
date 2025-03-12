@@ -1,16 +1,16 @@
-import R_usuario from "../components/CRUDS/read/r_usuario";
-import C_usuario from "../components/CRUDS/create/c_usuario";
-import C_exel from "../components/CRUDS/create/c_exel";
+import Create_usuario from "../components/CRUDS/usuario/create_usuario";
+import List_usuario from "../components/CRUDS/usuario/list_usuario";
+import Excel_usuario from "../components/CRUDS/usuario/excel_usuario";
 
 
-const Usuario = () => {
+const Crud_usuario = () => {
     return (
         <div>
-            <C_usuario />
-            <C_exel />
-            <R_usuario/>
+            <Create_usuario />
+            <List_usuario />
+            <Excel_usuario />
         </div>
     );
 }; 
 
-export default Usuario;
+export default Crud_usuario;
