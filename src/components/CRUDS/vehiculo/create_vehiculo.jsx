@@ -3,19 +3,16 @@ import { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Create_punto = () => {
-    const [punto, setPunto] = useState({
-        nombre: "",
-        latitud: "",
-        longitud: "",
-        direccion: ""
+const Create_vehiculo = () => {
+    const [vehiculo, setVehiculo] = useState({
+        vehiculo:""
     });
 
     const navigate = useNavigate(); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setPunto({ ...punto, [name]: value });
+        setVehiculo({ ...punto, [name]: value });
     };
 
     const handleSubmit = async (e) => {
