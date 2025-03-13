@@ -1,0 +1,85 @@
+/* Estilo general para el contenedor de la página */
+.d-flex {
+    display: flex;
+    height: 100vh;
+}
+
+/* Estilos para la barra lateral */
+.bg-dark {
+    background-color: #343a40 !important;
+}
+
+.nav-link {
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #495057;
+}
+
+/* Estilos avanzados para el perfil */
+.container {
+    padding-top: 50px;
+    flex: 1;
+}
+
+/* Fondo de perfil transparente con efectos */
+.card {
+    background: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+    backdrop-filter: blur(10px); /* Desenfoque de fondo */
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.2); /* Sombra más grande al pasar el ratón */
+}
+
+/* Efecto de transición para los list-group items */
+.list-group-item {
+    border: none;
+    background-color: transparent;
+    font-size: 1.1rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.list-group-item:hover {
+    color: #007bff; /* Cambio de color cuando se pasa el ratón */
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el botón de cerrar sesión */
+.btn-danger {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Cargando spinner */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.3em;
+}

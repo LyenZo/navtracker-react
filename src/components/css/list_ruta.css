@@ -1,0 +1,105 @@
+/* Estilos para el contenedor principal */
+.custom-container {
+    max-width: 100%; /* Ajustamos para que no haya límite de ancho */
+    margin: 0 auto; /* Asegura que el contenedor esté centrado */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Asegura que el contenedor no se desborde en pantallas más pequeñas */
+    overflow-x: auto; /* Para habilitar el desplazamiento horizontal si la tabla es muy ancha */
+}
+
+/* Estilo del título */
+h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Estilos para la tabla */
+.custom-table {
+    width: 100%; /* Asegura que la tabla ocupe el 100% del ancho disponible */
+    border-collapse: collapse; /* Mejora la apariencia de la tabla */
+}
+
+.custom-table th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px; /* Añadido para mejorar la apariencia de las celdas */
+}
+
+.custom-table td {
+    text-align: center;
+    padding: 10px; /* Añadido para mejorar la apariencia de las celdas */
+    border-top: 1px solid #ddd;
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para los botones */
+.btn {
+    font-size: 14px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-warning {
+    background-color: #f39c12;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #e67e22;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* Estilos para la paginación */
+.pagination-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Centra los elementos dentro de la paginación */
+}
+
+.pagination .page-link {
+    border-radius: 5px;
+    margin: 0 5px;
+    font-size: 16px;
+    padding: 10px 15px;
+    color: #007bff;
+    border: 1px solid #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const U_tipo = () => {
+const R_tipo = () => {
     const [t_usuarios, setTusuarios] = useState([]);
     const [currentPage, setCurrentPage] = useState(1); 
     const [usuariosPerPage, setUsuariosPerPage] = useState(5); 
@@ -170,4 +170,4 @@ const U_tipo = () => {
     );
 };
 
-export default U_tipo;
+export default R_tipo;

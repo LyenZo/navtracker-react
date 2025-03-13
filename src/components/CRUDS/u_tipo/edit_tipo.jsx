@@ -25,13 +25,13 @@ const Edit_usuario = () => {
         axios.put(`http://localhost:3001/api/u_tipo/${id_tipo}`, t_usuario)
         .then(() => {
             alert("Tipo de usuario actualizado");
-            navigate("/list_tipo"); // Redirige después de actualizar
+            navigate("/crud_tipo"); // Redirige después de actualizar
         })
         .catch(error => console.error(error));
     };
 
     const handleRedirect = () => {
-        navigate("/list_tipo"); // Redirige a la lista de tipos
+        navigate("/crud_tipo"); // Redirige a la lista de tipos
     };
 
     return (
@@ -95,7 +95,7 @@ const Edit_usuario = () => {
                     placeholder="ID tipo" 
                     value={t_usuario.id_tipo} 
                     onChange={handleChange} 
-                    disabled // Deshabilitado para que no pueda editarse
+                    disabled 
                 />
                 <input 
                     type="text" 

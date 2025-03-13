@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";  // Opción si usas Bootstrap para algunos estilos
+import "../../css/list_punto.css";
 
 const List_punto = () => {
     const [puntos, setPuntos] = useState([]);
@@ -19,50 +21,53 @@ const List_punto = () => {
             .catch(error => console.error(error));
     };
 
-    // Obtener los puntos actuales a mostrar según la página
     const indexOfLastPoint = currentPage * pointsPerPage;
     const indexOfFirstPoint = indexOfLastPoint - pointsPerPage;
     const currentPoints = puntos.slice(indexOfFirstPoint, indexOfLastPoint);
 
-    // Cambiar de página
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    // Calcular el número total de páginas
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(puntos.length / pointsPerPage); i++) {
         pageNumbers.push(i);
     }
 
     return (
-        <div>
-            <h2>Lista de Puntos</h2>
-            <table>
+        <div className="container custom-container">
+            <h2 className="text-center">Lista de Puntos</h2>
+
+            <table className="table table-striped table-bordered custom-table">
                 <thead>
                     <tr>
-                        <th >ID</th>
-                        <th >Nombre</th>
-                        <th >Latitud</th>
-                        <th >Longitud</th>
-                        <th >Dirección</th>
-                        <th >Editar</th>
-                        <th >Eliminar</th>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Latitud</th>
+                        <th>Longitud</th>
+                        <th>Dirección</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
                     {currentPoints.map(punto => (
-                        <tr key={punto.id_punto} >
-                            <td >{punto.id_punto}</td>
-                            <td >{punto.nombre}</td>
-                            <td >{punto.latitud}</td>
-                            <td >{punto.longitud}</td>
-                            <td >{punto.direccion}</td>
-                            <td >
+                        <tr key={punto.id_punto}>
+                            <td>{punto.id_punto}</td>
+                            <td>{punto.nombre}</td>
+                            <td>{punto.latitud}</td>
+                            <td>{punto.longitud}</td>
+                            <td>{punto.direccion}</td>
+                            <td>
                                 <Link to={`/edit_punto/${punto.id_punto}`}>
-                                    <button >Editar</button>
+                                    <button className="btn btn-warning btn-sm">Editar</button>
                                 </Link>
                             </td>
                             <td>
-                                <button onClick={() => handleDelete(punto.id_punto)}>Eliminar</button>
+                                <button 
+                                    className="btn btn-danger btn-sm" 
+                                    onClick={() => handleDelete(punto.id_punto)}
+                                >
+                                    Eliminar
+                                </button>
                             </td>
                         </tr>
                     ))}
@@ -70,14 +75,14 @@ const List_punto = () => {
             </table>
 
             {/* Paginación */}
-            <div >
+            <div className="pagination-container">
                 <nav>
-                    <ul >
+                    <ul className="pagination justify-content-center">
                         {pageNumbers.map(number => (
-                            <li key={number}>
+                            <li key={number} className="page-item">
                                 <button 
-                                    onClick={() => paginate(number)} 
-                                    
+                                    className="page-link" 
+                                    onClick={() => paginate(number)}
                                 >
                                     {number}
                                 </button>
@@ -86,6 +91,7 @@ const List_punto = () => {
                     </ul>
                 </nav>
             </div>
+
         </div>
     );
 };
