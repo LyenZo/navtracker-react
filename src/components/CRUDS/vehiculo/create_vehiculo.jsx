@@ -12,80 +12,44 @@ const Create_vehiculo = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setVehiculo({ ...punto, [name]: value });
+        setVehiculo({ ...vehiculo, [name]: value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:3001/api/punto_ruta/", punto);
-            alert("Punto de ruta registrado correctamente");
-            setPunto({
-                nombre: "",
-                latitud: "",
-                longitud: "",
-                direccion: ""
+            await axios.post("http://localhost:3001/api/vehiculo/", vehiculo);
+            alert("Vehiculo registrado correctamente");
+            setVehiculo({
+                vehiculo:""
             });
         } catch (error) {
-            console.error("Error al registrar punto de ruta", error);
-            alert("Error al registrar punto de ruta");
+            console.error("Error al registrar vehiculo", error);
+            alert("Error al registrar vehiculo");
         }
     };
 
     const handleNavigate = () => {
-        navigate('/excel_punto'); 
+        navigate('/excel_vehiculo'); 
     };
 
     return (
         <div className="container mt-5">
-            <h2 className="text-center mb-4">Registro de Punto de ruta</h2>
+            <h2 className="text-center mb-4">Registro de vehiculo</h2>
             <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm">
                 <div className="mb-3">
                     <input 
                         type="text" 
-                        name="nombre" 
-                        placeholder="Nombre" 
-                        value={punto.nombre} 
-                        onChange={handleChange} 
-                        required 
-                        className="form-control"
-                    />
-                </div>
-                <div className="mb-3">
-                    <input 
-                        type="text" 
-                        name="latitud" 
-                        placeholder="Latitud" 
-                        value={punto.latitud} 
-                        onChange={handleChange} 
-                        required 
-                        className="form-control"
-                    />
-                </div>
-                <div className="mb-3">
-                    <input 
-                        type="text" 
-                        name="longitud" 
-                        placeholder="Longitud" 
-                        value={punto.longitud} 
-                        onChange={handleChange} 
-                        required 
-                        className="form-control"
-                    />
-                </div>
-                <div className="mb-3">
-                    <input 
-                        type="text" 
-                        name="direccion" 
-                        placeholder="Dirección" 
-                        value={punto.direccion} 
+                        name="vehiculo" 
+                        placeholder="Vehiculo" 
+                        value={vehiculo.vehiculo} 
                         onChange={handleChange} 
                         required 
                         className="form-control"
                     />
                 </div>
                 <button type="submit" className="btn btn-primary w-100 mb-3">
-                    Registrar Punto de ruta
+                    Registrar Vehiculo
                 </button>
             </form>
 
@@ -99,4 +63,4 @@ const Create_vehiculo = () => {
     );
 };
 
-export default Create_punto;
+export default Create_vehiculo;
