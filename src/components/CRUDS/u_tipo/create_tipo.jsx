@@ -53,12 +53,7 @@ const Create_tipo = () => {
                 </button>
             </form>
 
-            <button 
-                onClick={handleNavigate} 
-                className="btn btn-secondary w-100"
-            >
-                Insertar datos desde Excel
-            </button>
+          
         </div>
     );
 };
