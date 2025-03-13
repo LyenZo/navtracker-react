@@ -99,4 +99,4 @@ const Create_vehiculo = () => {
     );
 };
 
-export default Create_punto;
+export default Create_vehiculo;

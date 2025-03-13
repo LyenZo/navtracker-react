@@ -3,92 +3,53 @@ import { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Create_punto = () => {
-    const [punto, setPunto] = useState({
-        nombre: "",
-        latitud: "",
-        longitud: "",
-        direccion: ""
+const Create_tipo = () => {
+    const [tipo, setTipo] = useState({
+        tipo: ""
     });
 
     const navigate = useNavigate(); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setPunto({ ...punto, [name]: value });
+        setTipo({ ...tipo, [name]: value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:3001/api/punto_ruta/", punto);
-            alert("Punto de ruta registrado correctamente");
-            setPunto({
-                nombre: "",
-                latitud: "",
-                longitud: "",
-                direccion: ""
+            await axios.post("http://localhost:3001/api/u_tipo/", tipo);
+            alert("Tipo de usuario creado");
+            setTipo({
+                tipo: ""
             });
         } catch (error) {
-            console.error("Error al registrar punto de ruta", error);
-            alert("Error al registrar punto de ruta");
+            console.error("Error al registrar el tipo de usuario", error);
+            alert("Error al registrar el tipo de usuario");
         }
     };
 
     const handleNavigate = () => {
-        navigate('/excel_punto'); 
+        navigate('/excel_tipo'); 
     };
 
     return (
         <div className="container mt-5">
-            <h2 className="text-center mb-4">Registro de Punto de ruta</h2>
+            <h2 className="text-center mb-4">Registro de Tipo de Usuario</h2>
             <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm">
                 <div className="mb-3">
                     <input 
                         type="text" 
-                        name="nombre" 
-                        placeholder="Nombre" 
-                        value={punto.nombre} 
-                        onChange={handleChange} 
-                        required 
-                        className="form-control"
-                    />
-                </div>
-                <div className="mb-3">
-                    <input 
-                        type="text" 
-                        name="latitud" 
-                        placeholder="Latitud" 
-                        value={punto.latitud} 
-                        onChange={handleChange} 
-                        required 
-                        className="form-control"
-                    />
-                </div>
-                <div className="mb-3">
-                    <input 
-                        type="text" 
-                        name="longitud" 
-                        placeholder="Longitud" 
-                        value={punto.longitud} 
-                        onChange={handleChange} 
-                        required 
-                        className="form-control"
-                    />
-                </div>
-                <div className="mb-3">
-                    <input 
-                        type="text" 
-                        name="direccion" 
-                        placeholder="Dirección" 
-                        value={punto.direccion} 
+                        name="tipo" 
+                        placeholder="Tipo" 
+                        value={tipo.tipo} 
                         onChange={handleChange} 
                         required 
                         className="form-control"
                     />
                 </div>
                 <button type="submit" className="btn btn-primary w-100 mb-3">
-                    Registrar Punto de ruta
+                    Registrar tipo de Usuario
                 </button>
             </form>
 
@@ -102,4 +63,4 @@ const Create_punto = () => {
     );
 };
 
-export default Create_punto;
+export default Create_tipo;
