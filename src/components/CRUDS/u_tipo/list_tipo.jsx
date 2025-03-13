@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; 
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -19,7 +19,6 @@ const R_tipo = () => {
             .catch(error => console.error(error));
     };
 
-    
     // Obtener los tipos de usuario actuales a mostrar según la página
     const indexOfLastUsuario = currentPage * usuariosPerPage;
     const indexOfFirstUsuario = indexOfLastUsuario - usuariosPerPage;
@@ -35,29 +34,29 @@ const R_tipo = () => {
     }
 
     return (
-        <div >
-            <h2 >Lista de Tipos de Usuario</h2>
-            <table >
+        <div className="container">
+            <h2 className="table-title">Lista de Tipos de Usuario</h2>
+            <table className="table table-striped table-bordered">
                 <thead>
-                    <tr >
-                        <th >ID Tipo</th>
-                        <th >Tipo</th>
-                        <th >Editar</th>
-                        <th >Eliminar</th>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tipo</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
                     {currentUsuarios.map(t_usuario => (
-                        <tr key={t_usuario.id_tipo} >
-                            <td >{t_usuario.id_tipo}</td>
-                            <td >{t_usuario.tipo}</td>
-                            <td >
-                                <Link to={`/editar_t_usuario/${t_usuario.id_tipo}`}>
-                                    <button >Editar</button>
+                        <tr key={t_usuario.id_tipo}>
+                            <td>{t_usuario.id_tipo}</td>
+                            <td>{t_usuario.tipo}</td>
+                            <td>
+                                <Link to={`/edit_tipo/${t_usuario.id_tipo}`}>
+                                    <button className="btn btn-warning">Editar</button>
                                 </Link>
                             </td>
                             <td>
-                                <button onClick={() => handleDelete(t_usuario.id_tipo)} >Eliminar</button>
+                                <button className="btn btn-danger" onClick={() => handleDelete(t_usuario.id_tipo)}>Eliminar</button>
                             </td>
                         </tr>
                     ))}
@@ -65,14 +64,14 @@ const R_tipo = () => {
             </table>
 
             {/* Paginación */}
-            <div >
+            <div className="pagination-container">
                 <nav>
-                    <ul >
+                    <ul className="pagination">
                         {pageNumbers.map(number => (
-                            <li key={number}>
+                            <li key={number} className="page-item">
                                 <button 
-                                    onClick={() => paginate(number)} 
-                                    
+                                    className={`page-link ${currentPage === number ? 'active' : ''}`}
+                                    onClick={() => paginate(number)}
                                 >
                                     {number}
                                 </button>
@@ -81,6 +80,92 @@ const R_tipo = () => {
                     </ul>
                 </nav>
             </div>
+
+            <style jsx>{`
+                .container {
+                    max-width: 80%;
+                    margin: auto;
+                    padding: 30px;
+                }
+
+                .table-title {
+                    text-align: center;
+                    margin-bottom: 20px;
+                    color: #4CAF50;
+                    font-size: 2rem;
+                }
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+
+                th, td {
+                    padding: 12px;
+                    text-align: left;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                tr:hover {
+                    background-color: #f1f1f1;
+                }
+
+                .btn {
+                    padding: 8px 16px;
+                    font-size: 14px;
+                    border: none;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
+
+                .btn-warning {
+                    background-color: #ff9800;
+                    color: white;
+                }
+
+                .btn-danger {
+                    background-color: #f44336;
+                    color: white;
+                }
+
+                .btn:hover {
+                    opacity: 0.8;
+                }
+
+                .pagination-container {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 20px;
+                }
+
+                .pagination {
+                    list-style-type: none;
+                    padding: 0;
+                    display: flex;
+                }
+
+                .page-item {
+                    margin: 0 5px;
+                }
+
+                .page-link {
+                    padding: 10px 15px;
+                    background-color: #f1f1f1;
+                    border: 1px solid #ddd;
+                    color: #333;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
+
+                .page-link:hover {
+                    background-color: #e0e0e0;
+                }
+
+                .active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+            `}</style>
         </div>
     );
 };
