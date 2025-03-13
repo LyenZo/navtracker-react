@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Edit_vehiculo = () => {
     const { id_vehiculo } = useParams();
     const navigate = useNavigate(); 
     const [vehiculo, setVehiculo] = useState({
-        vehiculo: "",
+        vehiculo:""
     });
 
     useEffect(() => {
@@ -24,74 +25,44 @@ const Edit_vehiculo = () => {
         axios.put(`http://localhost:3001/api/vehiculo/${id_vehiculo}`, vehiculo)
         .then(() => {
             alert("Vehiculo actualizado");
-            navigate("/c_vehiculo"); 
+            navigate("/list_vehiculo"); 
         })
         .catch(error => console.error(error));
     };
 
     const handleRedirect = () => {
-        navigate("/c_vehiculo"); 
+        navigate("/crud_vehiculo"); 
     };
 
     return (
-        <>
-            <style>
-                {`
-                body {
-                    font-family: Arial, sans-serif;
-                    background-color: #f8e8e8;
-                    color: #5a1a1a;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100vh;
-                    margin: 0;
-                }
-
-                form {
-                    background: #fff5f5;
-                    padding: 20px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                    width: 300px;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                }
-
-                input, select, button {
-                    padding: 10px;
-                    border: 1px solid #d47f7f;
-                    border-radius: 5px;
-                    font-size: 14px;
-                }
-
-                input:focus, select:focus {
-                    outline: none;
-                    border-color: #b53d3d;
-                    box-shadow: 0 0 5px rgba(181, 61, 61, 0.5);
-                }
-
-                button {
-                    background-color: #b53d3d;
-                    color: white;
-                    border: none;
-                    cursor: pointer;
-                    transition: 0.3s;
-                }
-
-                button:hover {
-                    background-color: #921818;
-                }
-                `}
-            </style>
-            <form onSubmit={handleSubmit}>
-                <h1>Editar Vehiculo</h1>
-                <input type="text" name="vehiculo" placeholder="Vehiculo" value={vehiculo.vehiculo} onChange={handleChange} required />
-                <button type="submit">Actualizar Vehiculo</button>
-                <button type="button" onClick={handleRedirect}>Volver a vehiculos</button>
+        <div className="container mt-5">
+            <h2 className="text-center mb-4">Editar Vehiculo</h2>
+            <form onSubmit={handleSubmit} className="p-4 border rounded shadow">
+                <div className="mb-3">
+                    <label htmlFor="nombre" className="form-label">Vehiculo</label>
+                    <input 
+                        type="text" 
+                        className="form-control" 
+                        id="vehiculo" 
+                        name="vehiculo" 
+                        placeholder="Vehiculo" 
+                        value={vehiculo.vehiculo} 
+                        onChange={handleChange} 
+                        required 
+                    />
+                </div>
+                <div className="d-flex justify-content-between">
+                    <button type="submit" className="btn btn-primary">Actualizar Vehiculo</button>
+                    <button 
+                        type="button" 
+                        className="btn btn-secondary" 
+                        onClick={handleRedirect}
+                    >
+                        Volver a Usuarios
+                    </button>
+                </div>
             </form>
-        </>
+        </div>
     );
 };
 

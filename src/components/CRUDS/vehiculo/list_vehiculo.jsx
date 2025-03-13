@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const R_vehiculos = () => {
+const List_vehiculo = () => {
     const [vehiculos, setVehiculos] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1); // Página actual
-    const [vehiculosPerPage, setVehiculosPerPage] = useState(5); // Vehículos por página
+    const [currentPage, setCurrentPage] = useState(1); 
+    const [vehiculosPerPage, setVehiculosPerPage] = useState(5); 
 
     useEffect(() => {
         axios.get("http://localhost:3001/api/vehiculo/")
@@ -19,44 +19,41 @@ const R_vehiculos = () => {
             .catch(error => console.error(error));
     };
 
-    // Obtener los vehículos actuales a mostrar según la página
     const indexOfLastVehiculo = currentPage * vehiculosPerPage;
     const indexOfFirstVehiculo = indexOfLastVehiculo - vehiculosPerPage;
     const currentVehiculos = vehiculos.slice(indexOfFirstVehiculo, indexOfLastVehiculo);
 
-    // Cambiar de página
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    // Calcular el número total de páginas
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(vehiculos.length / vehiculosPerPage); i++) {
         pageNumbers.push(i);
     }
 
     return (
-        <div style={{ padding: "20px", backgroundColor: "#fff", border: "1px solid #f08080", borderRadius: "8px" }}>
-            <h2 style={{ color: "#b22222", marginBottom: "15px" }}>Lista de Vehículos</h2>
-            <table style={{ width: "100%", borderCollapse: "collapse", border: "1px solid #f08080" }}>
+        <div>
+            <h2>Lista de Vehículos</h2>
+            <table>
                 <thead>
-                    <tr style={{ backgroundColor: "#f08080", color: "white" }}>
-                        <th style={{ border: "1px solid #f08080", padding: "8px" }}>ID</th>
-                        <th style={{ border: "1px solid #f08080", padding: "8px" }}>Vehículo</th>
-                        <th style={{ border: "1px solid #f08080", padding: "8px" }}>Editar</th>
-                        <th style={{ border: "1px solid #f08080", padding: "8px" }}>Eliminar</th>
+                    <tr>
+                        <th >ID</th>
+                        <th >Vehículo</th>
+                        <th >Editar</th>
+                        <th >Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
                     {currentVehiculos.map(vehiculo => (
-                        <tr key={vehiculo.id_vehiculo} style={{ backgroundColor: "#fff", borderBottom: "1px solid #f08080" }}>
-                            <td style={{ padding: "8px", textAlign: "center" }}>{vehiculo.id_vehiculo}</td>
-                            <td style={{ padding: "8px", textAlign: "center" }}>{vehiculo.vehiculo}</td>
-                            <td style={{ padding: "8px", textAlign: "center" }}>
-                                <Link to={`/editar_vehiculo/${vehiculo.id_vehiculo}`}>
-                                    <button style={{ backgroundColor: "#b22222", color: "white", padding: "5px 10px", border: "none", borderRadius: "4px", marginRight: "5px", cursor: "pointer" }}>Editar</button>
+                        <tr key={vehiculo.id_vehiculo} >
+                            <td >{vehiculo.id_vehiculo}</td>
+                            <td >{vehiculo.vehiculo}</td>
+                            <td >
+                                <Link to={`/edit_vehiculo/${vehiculo.id_vehiculo}`}>
+                                    <button >Editar</button>
                                 </Link>
                             </td>
                             <td>
-                                <button onClick={() => handleDelete(vehiculo.id_vehiculo)} style={{ backgroundColor: "#f08080", color: "white", padding: "5px 10px", border: "none", borderRadius: "4px", cursor: "pointer" }}>Eliminar</button>
+                                <button onClick={() => handleDelete(vehiculo.id_vehiculo)}>Eliminar</button>
                             </td>
                         </tr>
                     ))}
@@ -64,21 +61,14 @@ const R_vehiculos = () => {
             </table>
 
             {/* Paginación */}
-            <div style={{ marginTop: "20px", display: "flex", justifyContent: "center" }}>
+            <div >
                 <nav>
-                    <ul style={{ listStyle: "none", display: "flex", gap: "10px" }}>
+                    <ul >
                         {pageNumbers.map(number => (
                             <li key={number}>
                                 <button 
                                     onClick={() => paginate(number)} 
-                                    style={{
-                                        backgroundColor: currentPage === number ? "#b22222" : "#f08080", 
-                                        color: "white", 
-                                        padding: "8px 16px", 
-                                        border: "none", 
-                                        borderRadius: "4px", 
-                                        cursor: "pointer"
-                                    }}
+                                    
                                 >
                                     {number}
                                 </button>
@@ -91,4 +81,4 @@ const R_vehiculos = () => {
     );
 };
 
-export default R_vehiculos;
+export default List_vehiculo;
