@@ -30,24 +30,22 @@ const Excel_usuario = () => {
 
       try {
         for (const row of rows) {
-          const { nombre, ap_pat, ap_mat, fn, email, password } = row;
+          const { nombre, latitud, longitud, direccion } = row;
 
-          const n_tel = '1234567890'; // Número de teléfono, puedes personalizarlo
-          const id_tipo = '1'; // Valor por defecto para el tipo
-          const id_vehiculo = '2'; // Valor por defecto para el vehículo
+          if (!nombre || !latitud || !longitud || !direccion) {
+            alert('Faltan datos en la fila');
+            continue;
+          }
 
-          const usuario = {
+          const puntoRuta = {
             nombre,
-            ap_pat,
-            ap_mat,
-            email,
-            password,
-            n_tel,
-            id_tipo,
-            id_vehiculo
+            latitud,
+            longitud,
+            direccion
           };
 
-          await axios.post('http://localhost:3001/api/usuario', usuario);
+          // Enviar datos a la API
+          await axios.post('http://localhost:3001/api/punto_ruta', puntoRuta);
         }
         alert('Datos cargados correctamente');
       } catch (error) {

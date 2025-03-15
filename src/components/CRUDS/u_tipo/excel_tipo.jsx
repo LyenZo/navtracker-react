@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import * as XLSX from 'xlsx';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from 'react-router-dom';  // Importa useNavigate}
-
+import { useNavigate } from 'react-router-dom';  // Importa useNavigate
 
 const Excel_usuario = () => {
   const [file, setFile] = useState(null);
@@ -76,6 +75,46 @@ const Excel_usuario = () => {
         </button>
       </div>
 
+      {/* Estilos añadidos */}
+      <style jsx>{`
+        .custom-container {
+          max-width: 600px;
+          margin: auto;
+          padding-top: 50px;
+          padding-bottom: 50px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+          background-color: #f9f9f9;
+        }
+
+        h2 {
+          color: #4CAF50;
+          font-size: 2rem;
+          font-weight: bold;
+        }
+
+        .custom-input {
+          border-radius: 5px;
+          padding: 10px;
+          font-size: 16px;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-button {
+          margin-top: 20px;
+          padding: 12px 30px;
+          font-size: 16px;
+          background-color: #007bff;
+          color: white;
+          border-radius: 5px;
+          border: none;
+          transition: background-color 0.3s ease;
+        }
+
+        .custom-button:hover {
+          background-color: #0056b3;
+        }
+      `}</style>
     </div>
   );
 };
