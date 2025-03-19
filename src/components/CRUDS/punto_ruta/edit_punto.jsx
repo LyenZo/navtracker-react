@@ -28,7 +28,7 @@ const Edit_punto = () => {
         axios.put(`http://localhost:3001/api/punto_ruta/${id_punto}`, punto)
         .then(() => {
             alert("Punto ruta actualizado");
-            navigate("/c_punto"); 
+            navigate("/crud_punto"); 
         })
         .catch(error => console.error(error));
     };
