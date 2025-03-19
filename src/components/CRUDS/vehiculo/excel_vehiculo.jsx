@@ -30,24 +30,12 @@ const Excel_usuario = () => {
 
       try {
         for (const row of rows) {
-          const { nombre, ap_pat, ap_mat, fn, email, password } = row;
+          const { vehiculo } = row; // Extraemos solo el campo 'vehiculo'
 
-          const n_tel = '1234567890'; // Número de teléfono, puedes personalizarlo
-          const id_tipo = '1'; // Valor por defecto para el tipo
-          const id_vehiculo = '2'; // Valor por defecto para el vehículo
-
-          const usuario = {
-            nombre,
-            ap_pat,
-            ap_mat,
-            email,
-            password,
-            n_tel,
-            id_tipo,
-            id_vehiculo
-          };
-
-          await axios.post('http://localhost:3001/api/usuario', usuario);
+          // Verificamos si 'vehiculo' existe para evitar enviar datos vacíos
+          if (vehiculo) {
+            await axios.post('http://localhost:3001/api/vehiculo', { vehiculo });
+          }
         }
         alert('Datos cargados correctamente');
       } catch (error) {

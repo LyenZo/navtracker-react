@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as XLSX from 'xlsx';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Excel_usuario = () => {
+const Excel_rastreo = () => {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -30,24 +30,24 @@ const Excel_usuario = () => {
 
       try {
         for (const row of rows) {
-          const { nombre, ap_pat, ap_mat, fn, email, password } = row;
+          const { id_ruta, latitud, longitud, distancia, fecha, id_punto } = row;
 
-          const n_tel = '1234567890'; // Número de teléfono, puedes personalizarlo
-          const id_tipo = '1'; // Valor por defecto para el tipo
-          const id_vehiculo = '2'; // Valor por defecto para el vehículo
+          // Si alguno de los valores es obligatorio, puedes agregar validación antes de enviar la solicitud
+          if (!id_ruta || !latitud || !longitud || !distancia || !fecha || !id_punto) {
+            alert('Faltan datos en la fila');
+            continue; // Omite el envío de esta fila si falta algún dato
+          }
 
-          const usuario = {
-            nombre,
-            ap_pat,
-            ap_mat,
-            email,
-            password,
-            n_tel,
-            id_tipo,
-            id_vehiculo
+          const rastreo = {
+            id_ruta,
+            latitud,
+            longitud,
+            distancia,
+            fecha,
+            id_punto
           };
 
-          await axios.post('http://localhost:3001/api/usuario', usuario);
+          await axios.post('http://localhost:3001/api/rastreo', rastreo);
         }
         alert('Datos cargados correctamente');
       } catch (error) {
@@ -85,4 +85,4 @@ const Excel_usuario = () => {
   );
 };
 
-export default Excel_usuario;
+export default Excel_rastreo;
