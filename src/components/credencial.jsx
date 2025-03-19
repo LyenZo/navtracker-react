@@ -3,40 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/perfil.css"
-
-const Menu_cruds = () => {
-    return (
-        <div className="d-flex">
-            <div className="bg-dark text-white p-3 vh-100" style={{ width: "250px" }}>
-                <h4>Administrador</h4>
-                <ul className="nav flex-column">
-                    <li className="nav-item">
-                        <Link className="nav-link text-white" to="/crud_punto">Puntos de Ruta</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link text-white" to="/crud_rastreo">Rastreador</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link text-white" to="/crud_ruta">Ruta</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link text-white" to="/crud_tipo">Tipos de Usuario</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link text-white" to="/crud_usuario">Usuarios</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link text-white" to="/crud_vehiculo">Vehículos</Link>
-                    </li>
-                </ul>
-            </div>
-            <div className="container mt-5">
-                <Perfil />
-            </div>
-        </div>
-    );
-};
-
+import Menu_cruds from "./menu_cruds";
 const Perfil = () => {
     const [usuario, setUsuario] = useState(null);
     const [error, setError] = useState(null);
@@ -73,6 +40,7 @@ const Perfil = () => {
 
     return (
         <div className="container mt-5">
+            {usuario.id_tipo === 3 && <Menu_cruds />}
             <div className="row justify-content-center">
                 <div className="col-md-8">
                     <div className="card">
@@ -96,8 +64,9 @@ const Perfil = () => {
                     </div>
                 </div>
             </div>
+            
         </div>
     );
 };
 
-export default Menu_cruds;
+export default Perfil;

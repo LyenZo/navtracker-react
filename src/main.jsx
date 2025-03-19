@@ -39,7 +39,7 @@ import Login from "./components/login";
 //Password
 import RecuperarPassword from "./components/password/recuperarPassword";
 import RestablecerPassword from "./components/password/restablecerPassword";
-import Perfil from "./components/perfil";
+import Perfil from "./pages/perfil";
 
 
 
