@@ -10,22 +10,22 @@ const Menu_cruds = () => {
                 <h4>Administrador</h4>
                 <ul className="nav flex-column">
                     <li className="nav-item">
-                        <Link className="nav-link text-white" to="/r_punto">Puntos de Ruta</Link>
+                        <Link className="nav-link text-white" to="/crud_punto">Puntos de Ruta</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link text-white" to="/r_rastreo">Rastreador</Link>
+                        <Link className="nav-link text-white" to="/crud_rastreo">Rastreador</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link text-white" to="/r_ruta">Ruta</Link>
+                        <Link className="nav-link text-white" to="/crud_ruta">Ruta</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link text-white" to="/r_tipo">Tipos de Usuario</Link>
+                        <Link className="nav-link text-white" to="/crud_tipo">Tipos de Usuario</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link text-white" to="/r_usuario">Usuarios</Link>
+                        <Link className="nav-link text-white" to="/crud_usuario">Usuarios</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link text-white" to="/r_vehiculo">Vehículos</Link>
+                        <Link className="nav-link text-white" to="/crud_vehiculo">Vehículos</Link>
                     </li>
                 </ul>
             </div>

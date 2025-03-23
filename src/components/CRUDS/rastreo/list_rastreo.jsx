@@ -2,25 +2,39 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";  // Opción si usas Bootstrap para algunos estilos
-import "../../css/list_rastreo.css"
+import "../../css/list_rastreo.css";
 
 const R_rastreo = () => {
     const [rastreos, setRastreos] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1); 
-    const [rastreosPerPage, setRastreosPerPage] = useState(5); 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [rastreosPerPage, setRastreosPerPage] = useState(5);
 
-    useEffect(() => {
-        axios.get("http://localhost:3001/api/rastreo/")
+    // Función para obtener los rastreos desde la API
+    const fetchRastreos = () => {
+        axios.get("http://localhost:3001/api/gps/")
             .then(response => setRastreos(response.data))
             .catch(error => console.error(error));
+    };
+
+    // Llamamos a la API cuando el componente se monta
+    useEffect(() => {
+        fetchRastreos();  // Obtiene los rastreos iniciales
+        
+        // Configuración para actualizar los rastreos cada 5 segundos
+        const interval = setInterval(fetchRastreos, 5000);  // Actualiza cada 5 segundos
+
+        // Limpiamos el intervalo cuando el componente se desmonta
+        return () => clearInterval(interval);
     }, []);
 
+    // Función para manejar la eliminación de un rastreo
     const handleDelete = (id_rastreo) => {
-        axios.delete(`http://localhost:3001/api/rastreo/${id_rastreo}`)
+        axios.delete(`http://localhost:3001/api/gps/${id_rastreo}`)
             .then(() => setRastreos(rastreos.filter(rastreo => rastreo.id_rastreo !== id_rastreo)))
             .catch(error => console.error(error));
     };
 
+    // Paginación
     const indexOfLastRastreo = currentPage * rastreosPerPage;
     const indexOfFirstRastreo = indexOfLastRastreo - rastreosPerPage;
     const currentRastreos = rastreos.slice(indexOfFirstRastreo, indexOfLastRastreo);
@@ -40,26 +54,22 @@ const R_rastreo = () => {
                 <thead>
                     <tr>
                         <th>ID Rastreo</th>
-                        <th>ID Ruta</th>
                         <th>Latitud</th>
                         <th>Longitud</th>
-                        <th>Distancia</th>
-                        <th>Fecha</th>
-                        <th>ID Punto</th>
+                        <th>Altitud</th>
+                        <th>Velocidad</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
                     {currentRastreos.map(rastreo => (
-                        <tr key={rastreo.id_rastreo}>
-                            <td>{rastreo.id_rastreo}</td>
-                            <td>{rastreo.id_ruta}</td>
+                        <tr key={rastreo.id_gps}>
+                            <td>{rastreo.id_gps}</td>
                             <td>{rastreo.latitud}</td>
                             <td>{rastreo.longitud}</td>
-                            <td>{rastreo.distancia}</td>
-                            <td>{rastreo.fecha}</td>
-                            <td>{rastreo.id_punto}</td>
+                            <td>{rastreo.altitud}</td>
+                            <td>{rastreo.velocidad}</td>
                             <td>
                                 <Link to={`/edit_rastreo/${rastreo.id_rastreo}`}>
                                     <button className="btn btn-warning btn-sm">Editar</button>
@@ -95,7 +105,6 @@ const R_rastreo = () => {
                     </ul>
                 </nav>
             </div>
-
         </div>
     );
 };
