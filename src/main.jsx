@@ -40,6 +40,8 @@ import Login from "./components/login";
 import RecuperarPassword from "./components/password/recuperarPassword";
 import RestablecerPassword from "./components/password/restablecerPassword";
 import Perfil from "./pages/perfil";
+//movil
+import Sesion from "./pages/sesion";
 
 
 
@@ -88,6 +90,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/recuperar" element={<RecuperarPassword />} />
       <Route path="/restablecer-password/:token" element={<RestablecerPassword />} />
       <Route path="/perfil" element={<Perfil />} />
+      {/* <!-- Movil -->*/}
+      <Route path="/sesion" element={<Sesion />} />
     </Routes>
   </BrowserRouter>
 )

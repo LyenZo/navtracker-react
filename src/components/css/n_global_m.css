@@ -1,0 +1,47 @@
+/* Estilos para la barra de navegación */
+.navbar {
+    height: 80px; 
+    background-color: white; /* Fondo blanco */
+    border-top: 1px solid #ccc; /* Línea de separación debajo */
+    z-index: 9999; /* Para asegurar que la barra se quede sobre otros elementos */
+}
+
+.navbar .navbar-brand img {
+    height: 40px;
+}
+
+/* Estilo para los enlaces de navegación */
+.navbar-nav .nav-link {
+    color: #333; /* Color del texto de los enlaces */
+    font-weight: 500;
+}
+
+/* Cambiar color del enlace cuando se pasa el ratón */
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+/* Ajuste para evitar que el contenido debajo de la barra se cubra */
+body {
+    padding-top: 60px; /* Da espacio suficiente debajo de la barra de navegación */
+}
+.navbar-logo{
+    margin-top: -5px;
+    margin-left: 5px;
+}
+
+.navbar-img{
+    margin-top: -5px;
+    margin-left: 30px;
+}
+
+.texto{
+    color: #1F6527;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+.boton-verde{
+    background-color: #1F6527;
+    color: white;
+}
