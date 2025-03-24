@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../../css/body.css";
 
 const C_usuario = () => {
     const [usuario, setUsuario] = useState({
@@ -41,6 +42,7 @@ const C_usuario = () => {
                 id_tipo: "",
                 id_vehiculo: ""
             });
+            navigate('/login'); 
         } catch (error) {
             console.error("Error al registrar usuario", error);
             alert("Error al registrar usuario");
@@ -52,7 +54,7 @@ const C_usuario = () => {
     };
 
     return (
-        <div className="container mt-5">
+        <div className="contenedor">
             <h2 className="text-center mb-4">Registro de Usuario</h2>
             <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm">
                 <div className="mb-3">
@@ -153,17 +155,11 @@ const C_usuario = () => {
                     />
                 </div>
 
-                <button type="submit" className="btn btn-primary w-100 mb-3">
+                <button type="submit" className="btn btn-primary w-100 mb-3" style={{backgroundColor:"#1F6527", borderColor:"green"}}>
                     Registrar Usuario
                 </button>
+                <button onClick={handleNavigate} className="btn btn-secondary w-100" >Insertar datos desde Excel</button>
             </form>
-
-            <button 
-                onClick={handleNavigate} 
-                className="btn btn-secondary w-100"
-            >
-                Insertar datos desde Excel
-            </button>
         </div>
     );
 };

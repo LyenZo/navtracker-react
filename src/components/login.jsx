@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./css/login.css"; 
 
 const Login = () => {
     const [usuario, setUsuario] = useState({ email: "", password: "" });
@@ -33,8 +34,8 @@ const Login = () => {
     return (
         <div className="container mt-5">
             <div className="row justify-content-center">
-                <div className="col-md-6">
-                    <div className="card">
+                <div className="col-lg-4 col-md-6 col-sm-8 col-12">
+                    <div className="carta">
                         <div className="card-body">
                             <h2 className="text-center">Inicio de Sesión</h2>
                             {error && <div className="alert alert-danger">{error}</div>}
@@ -63,13 +64,13 @@ const Login = () => {
                                         required 
                                     />
                                 </div>
-                                <button type="submit" className="btn btn-primary w-100">
+                                <button type="submit" className="btn btn-primary w-100" style={{backgroundColor:"#1F6527", borderColor:"green"}}>
                                     Iniciar Sesión
                                 </button>
                             </form>
-                            <div className="text-center mt-3">
-                                <Link to="/recuperar">¿Olvidaste tu contraseña?</Link>
-                            </div>
+                            <Link to="/recuperar" className="btn btn-secondary w-100" style={{color:"white", marginTop:"10px"}}>
+                            ¿Olvidaste tu contraseña?
+                            </Link>
                         </div>
                     </div>
                 </div>

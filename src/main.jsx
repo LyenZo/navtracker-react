@@ -42,6 +42,8 @@ import RestablecerPassword from "./components/password/restablecerPassword";
 import Perfil from "./pages/perfil";
 //movil
 import Sesion from "./pages/sesion";
+import Login_p from "./pages/login_p"
+import Create_usuario_p from "./pages/create_usuario_p";
 
 
 
@@ -75,7 +77,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/crud_tipo" element={<Crud_tipo />} />
       {/* <!-- usuario --> */}
       <Route path="/excel_usuario" element={<Excel_usuario />} />
-      <Route path="/create_usuario" element={<Create_usuario />} />
+      <Route path="/create_usuario" element={<Create_usuario_p />} />
       <Route path="/list_usuario" element={<List_usuario />} />
       <Route path="/edit_usuario/:id_u" element={<Edit_usuario />} />
       <Route path="/crud_usuario" element={<Crud_usuario />} />
@@ -85,7 +87,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/edit_vehiculo/:id_vehiculo" element={<Edit_vehiculo />} />
       <Route path="/crud_vehiculo" element={<Crud_vehiculo />} />
       {/* <!-- Login --> */}
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login_p />} />
       {/* <!-- Password --> */}
       <Route path="/recuperar" element={<RecuperarPassword />} />
       <Route path="/restablecer-password/:token" element={<RestablecerPassword />} />

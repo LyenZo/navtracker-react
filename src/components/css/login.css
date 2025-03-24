@@ -1,0 +1,28 @@
+/* Asegúrate de que el formulario ocupe un buen espacio en todas las pantallas */
+.card {
+    border-radius: 10px;
+}
+
+/* Asegura que los botones no se vean demasiado grandes en pantallas pequeñas */
+button {
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* Alineación de texto de la alerta de error */
+.alert-danger {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Personaliza los enlaces para que se vean bien en móviles */
+.text-center a {
+    font-size: 14px;
+    color: #007bff;
+}
+
+.carta {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Una sombra más suave */
+    padding: 20px; /* Agrega un espaciado interno alrededor del contenido */
+    border-radius: 8px; /* Opcional: Agrega bordes redondeados */
+}

@@ -2,11 +2,24 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import N_global_m from "../components/recursos/n_global_m";
+
 
 import Menu_cruds from "../components/menu_cruds";
 import Credencial from "../components/credencial";
 
 const Perfil = () => {
+    const [isMobile, setIsMobile] = useState(false);
+    
+    useEffect(() => {
+        const checkScreenSize = () => {
+        setIsMobile(window.innerWidth <= 768); 
+        };
+        checkScreenSize();
+        window.addEventListener("resize", checkScreenSize);
+        return () => window.removeEventListener("resize", checkScreenSize);
+    }, []);
+    
     const [usuario, setUsuario] = useState(null);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
@@ -44,6 +57,7 @@ const Perfil = () => {
         <div>
             {usuario.id_tipo === 3 && <Menu_cruds />}
             {(usuario.id_tipo === 1 || usuario.id_tipo === 2) && <Credencial />}
+            {isMobile && <N_global_m />} 
         </div>
     );
 };

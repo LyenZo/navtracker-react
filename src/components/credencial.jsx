@@ -43,7 +43,7 @@ const Perfil = () => {
             {usuario.id_tipo === 3 && <Menu_cruds />}
             <div className="row justify-content-center">
                 <div className="col-md-8">
-                    <div className="card">
+                    <div className="carta">
                         <div className="card-body">
                             <h2 className="text-center">Perfil de Usuario</h2>
                             <ul className="list-group list-group-flush">

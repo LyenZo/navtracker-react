@@ -18,7 +18,7 @@
 
 /* Cambiar color del enlace cuando se pasa el ratón */
 .navbar-nav .nav-link:hover {
-    color: #007bff;
+    color: white;
 }
 
 /* Ajuste para evitar que el contenido debajo de la barra se cubra */
@@ -42,6 +42,29 @@ body {
 }
 
 .boton-verde{
-    background-color: #1F6527;
+    align-items: center;
+
+    background-color: white;
     color: white;
+}
+.texto3{
+    color:white;
+}
+
+/* Cambiar el color del texto en los botones */
+.boton-verde {
+    color: white; /* Color del texto */
+    background-color: #28a745; /* Color de fondo (verde) */
+    border-color: #28a745; /* Aseguramos que el borde también tenga el mismo color */
+}
+
+/* Efecto al pasar el ratón sobre el botón */
+.boton-verde:hover {
+    background-color: #218838; /* Un verde más oscuro al pasar el ratón */
+    border-color: #1e7e34;
+}
+
+/* Opcional: Cambiar color en el foco si lo deseas */
+.boton-verde:focus {
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.5); /* Sombra verde suave */
 }
