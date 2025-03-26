@@ -53,7 +53,7 @@ const Excel_usuario = () => {
 
   return (
     <div className="container custom-container">
-      <h2 className="text-center mb-4">Cargar datos desde Excel</h2>
+      <h2 className="text-center mb-4"style={{color:"black"}}>Cargar datos desde Excel</h2>
 
       <div className="mb-3">
         <label htmlFor="fileInput" className="form-label">Selecciona el archivo Excel</label>

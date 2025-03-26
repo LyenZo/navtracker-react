@@ -2,21 +2,28 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import N_global_m from "../components/recursos/n_global_m";
 
 import Create_punto from "../components/CRUDS/punto_ruta/create_punto";
 import List_punto from "../components/CRUDS/punto_ruta/list_punto";
 import Excel_punto from "../components/CRUDS/punto_ruta/excel_punto";
 
 const Crud_punto = () => {
+    const [isMobile, setIsMobile] = useState(false);
     const [usuario, setUsuario] = useState(null);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth <= 768); // Consideramos móvil cuando el ancho es <= 768px
+        };
+        checkScreenSize();
+        window.addEventListener("resize", checkScreenSize);
         const token = localStorage.getItem("token");
         if (!token) {
             navigate("/");
-            return;
+            return () => window.removeEventListener("resize", checkScreenSize);
         }
 
         const fetchUsuario = async () => {
@@ -38,7 +45,7 @@ const Crud_punto = () => {
     }
 
     if (!usuario) {
-        return <div className="text-center mt-5"><div className="spinner-border text-primary" role="status"></div><p>Cargando perfil...</p></div>;
+        return <div className="text-center mt-0"><div className="spinner-border text-primary" role="status"></div><p>Cargando perfil...</p></div>;
     }
 
     
@@ -52,6 +59,7 @@ const Crud_punto = () => {
             <Create_punto />
             <List_punto />
             <Excel_punto />
+            {isMobile && <N_global_m />}
         </div>
     );
 };

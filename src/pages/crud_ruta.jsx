@@ -6,17 +6,23 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Create_ruta from "../components/CRUDS/ruta/create_ruta";
 import List_ruta from "../components/CRUDS/ruta/list_ruta";
 import Excel_ruta from "../components/CRUDS/ruta/excel_ruta";
+import N_global_m from "../components/recursos/n_global_m";
 
 const Crud_ruta = () => {
+    const [isMobile, setIsMobile] = useState(false);
     const [usuario, setUsuario] = useState(null);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-
     useEffect(() => {
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth <= 768); // Consideramos móvil cuando el ancho es <= 768px
+        };
+        checkScreenSize();
+        window.addEventListener("resize", checkScreenSize);
         const token = localStorage.getItem("token");
         if (!token) {
             navigate("/");
-            return;
+            return () => window.removeEventListener("resize", checkScreenSize);
         }
 
         const fetchUsuario = async () => {
@@ -52,6 +58,7 @@ const Crud_ruta = () => {
             <Create_ruta />
             <List_ruta />
             <Excel_ruta />
+            {isMobile && <N_global_m />} {/* Solo mostrar N_global_m si es móvil */}
         </div>
     );
 };

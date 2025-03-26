@@ -7,19 +7,19 @@ return (
     <div>
     <nav className="navbar navbar-expand-lg navbar-light fixed-bottom">
         <div className="container-fluid d-flex justify-content-center">
-        <Link to="/" className="navbar-brand d-flex flex-column align-items-center me-0">
+        <Link to="/" className="navbar-brand d-flex flex-column align-items-center">
             <img src="/img/home.png" alt="Logo" className="navbar-logo" />
             <p className="texto">Inicio</p>
         </Link>
-        <Link to="/" className="navbar-brand d-flex flex-column align-items-center me-0">
+        <Link to="/" className="navbar-brand d-flex flex-column align-items-center">
             <img src="/img/logo_2.png" alt="Logo" className="navbar-img" />
-            <p className="texto">Rastreador</p>
+            <p className="texto">Rastreadores</p>
         </Link>
-        <Link to="/" className="navbar-brand d-flex flex-column align-items-center me-0">
+        <Link to="/" className="navbar-brand d-flex flex-column align-items-center">
             <img src="/img/rastreo.png" alt="Logo" className="navbar-img" />
             <p className="texto">Ubicación</p>
         </Link>
-        <Link to="/sesion" className="navbar-brand d-flex flex-column align-items-center me-0">
+        <Link to="/sesion" className="navbar-brand d-flex flex-column align-items-center">
             <img src="/img/perfil.png" alt="Logo" className="navbar-img" />
             <p className="texto">Perfil</p>
         </Link>

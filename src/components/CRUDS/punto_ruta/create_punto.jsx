@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import "../../css/body.css"
 const Create_punto = () => {
     const [punto, setPunto] = useState({
         nombre: "",
@@ -40,7 +40,7 @@ const Create_punto = () => {
     };
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-0">
             <h2 className="text-center mb-4">Registro de Punto de ruta</h2>
             <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm">
                 <div className="mb-3">

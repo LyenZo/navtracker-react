@@ -44,7 +44,7 @@ const Create_rastreo = () => {
     };
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-0">
             <h2 className="text-center mb-4">Registro de Rastreo</h2>
             <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm">
                 <div className="mb-3">

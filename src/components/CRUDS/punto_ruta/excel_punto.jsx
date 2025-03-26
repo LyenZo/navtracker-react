@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import * as XLSX from 'xlsx';
 import "bootstrap/dist/css/bootstrap.min.css";
+import"../../css/bottom_excel.css";
 
 const Excel_usuario = () => {
   const [file, setFile] = useState(null);

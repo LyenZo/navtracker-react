@@ -35,7 +35,7 @@ const Create_tipo = () => {
 
     return (
         <div className="container mt-5">
-            <h2 className="text-center mb-4">Registro de Tipo de Usuario</h2>
+            <h2 className="text-center mb-4" style={{color:"black"}}>Registro de Tipo de Usuario</h2>
             <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm">
                 <div className="mb-3">
                     <input 

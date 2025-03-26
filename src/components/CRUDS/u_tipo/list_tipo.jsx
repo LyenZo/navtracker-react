@@ -35,7 +35,7 @@ const R_tipo = () => {
 
     return (
         <div className="container">
-            <h2 className="table-title">Lista de Tipos de Usuario</h2>
+            <h2 className="table-title"style={{color:"black"}}>Lista de Tipos de Usuario</h2>
             <table className="table table-striped table-bordered">
                 <thead>
                     <tr>
