@@ -18,7 +18,7 @@ const Create_tipo = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:3001/api/u_tipo/", tipo);
+            await axios.post("http://18.118.253.191/api/u_tipo/", tipo);
             alert("Tipo de usuario creado");
             setTipo({
                 tipo: ""

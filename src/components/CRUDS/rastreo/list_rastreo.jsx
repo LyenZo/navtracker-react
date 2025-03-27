@@ -10,13 +10,13 @@ const R_rastreo = () => {
     const [rastreosPerPage, setRastreosPerPage] = useState(5); 
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/rastreo/")
+        axios.get("http://18.118.253.191/api/rastreo/")
             .then(response => setRastreos(response.data))
             .catch(error => console.error(error));
     }, []);
 
     const handleDelete = (id_rastreo) => {
-        axios.delete(`http://localhost:3001/api/rastreo/${id_rastreo}`)
+        axios.delete(`http://18.118.253.191/api/rastreo/${id_rastreo}`)
             .then(() => setRastreos(rastreos.filter(rastreo => rastreo.id_rastreo !== id_rastreo)))
             .catch(error => console.error(error));
     };

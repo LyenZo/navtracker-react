@@ -38,7 +38,7 @@ const Excel_usuario = () => {
             tipo 
           };
 
-          await axios.post('http://localhost:3001/api/u_tipo', tipoData);
+          await axios.post('http://18.118.253.191/api/u_tipo', tipoData);
         }
         alert('Datos cargados correctamente');
         navigate('/crud_tipo');  // Redirige a "crud_tipo"

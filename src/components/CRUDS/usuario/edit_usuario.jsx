@@ -18,7 +18,7 @@ const Edit_usuario = () => {
     });
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/usuario/${id_u}`)
+        axios.get(`http://18.118.253.191/api/usuario/${id_u}`)
             .then(response => setUsuario(response.data))
             .catch(error => console.error(error));
     }, [id_u]);

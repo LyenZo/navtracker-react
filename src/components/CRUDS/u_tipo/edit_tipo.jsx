@@ -22,7 +22,7 @@ const Edit_usuario = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:3001/api/u_tipo/${id_tipo}`, t_usuario)
+        axios.put(`http://18.118.253.191/api/u_tipo/${id_tipo}`, t_usuario)
         .then(() => {
             alert("Tipo de usuario actualizado");
             navigate("/crud_tipo"); // Redirige después de actualizar

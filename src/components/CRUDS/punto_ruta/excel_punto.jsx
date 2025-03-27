@@ -45,7 +45,7 @@ const Excel_usuario = () => {
           };
 
           // Enviar datos a la API
-          await axios.post('http://localhost:3001/api/punto_ruta', puntoRuta);
+          await axios.post('http://18.118.253.191/api/punto_ruta', puntoRuta);
         }
         alert('Datos cargados correctamente');
       } catch (error) {

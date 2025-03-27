@@ -34,7 +34,7 @@ const Excel_usuario = () => {
 
           // Verificamos si 'vehiculo' existe para evitar enviar datos vacíos
           if (vehiculo) {
-            await axios.post('http://localhost:3001/api/vehiculo', { vehiculo });
+            await axios.post('http://18.118.253.191/api/vehiculo', { vehiculo });
           }
         }
         alert('Datos cargados correctamente');

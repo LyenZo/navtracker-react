@@ -17,7 +17,7 @@ const Login = () => {
         setError(null);
 
         try {
-            const response = await axios.post("http://localhost:3001/api/login", usuario);
+            const response = await axios.post("http://18.118.253.191/api/login", usuario);
             if (response.data.token) {
                 localStorage.setItem("token", response.data.token);
                 alert("Inicio de sesión exitoso");

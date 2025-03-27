@@ -10,7 +10,7 @@ const Edit_vehiculo = () => {
     });
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/vehiculo/${id_vehiculo}`)
+        axios.get(`http://18.118.253.191/api/vehiculo/${id_vehiculo}`)
             .then(response => setVehiculo(response.data))
             .catch(error => console.error(error));
     }, [id_vehiculo]);
@@ -21,7 +21,7 @@ const Edit_vehiculo = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:3001/api/vehiculo/${id_vehiculo}`, vehiculo)
+        axios.put(`http://18.118.253.191/api/vehiculo/${id_vehiculo}`, vehiculo)
         .then(() => {
             alert("Vehiculo actualizado");
             navigate("/c_vehiculo"); 

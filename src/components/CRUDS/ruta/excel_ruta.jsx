@@ -47,7 +47,7 @@ const Excel_usuario = () => {
             id_vehiculo
           };
 
-          await axios.post('http://localhost:3001/api/usuario', usuario);
+          await axios.post('http://18.118.253.191/api/usuario', usuario);
         }
         alert('Datos cargados correctamente');
       } catch (error) {

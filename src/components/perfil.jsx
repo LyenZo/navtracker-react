@@ -51,7 +51,7 @@ const Perfil = () => {
 
         const fetchUsuario = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/api/perfil", {
+                const response = await axios.get("http://18.118.253.191/api/perfil", {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setUsuario(response.data);

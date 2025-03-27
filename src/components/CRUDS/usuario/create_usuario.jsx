@@ -29,7 +29,7 @@ const C_usuario = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:3001/api/usuario/", usuario);
+            await axios.post("http://18.118.253.191/api/usuario", usuario);
             alert("Usuario registrado correctamente");
             setUsuario({
                 nombre: "",

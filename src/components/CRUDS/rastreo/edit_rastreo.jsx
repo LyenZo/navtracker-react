@@ -15,7 +15,7 @@ const Edit_rastreo = () => {
     });
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/rastreo/${id_rastreo}`)
+        axios.get(`http://18.118.253.191/api/rastreo/${id_rastreo}`)
             .then(response => setRastreo(response.data))
             .catch(error => console.error(error));
     }, [id_rastreo]);
@@ -26,7 +26,7 @@ const Edit_rastreo = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:3001/api/rastreo/${id_rastreo}`, rastreo)
+        axios.put(`http://18.118.253.191/api/rastreo/${id_rastreo}`, rastreo)
         .then(() => {
             alert("Rastreo actualizado");
             navigate("/crud_rastreo"); 

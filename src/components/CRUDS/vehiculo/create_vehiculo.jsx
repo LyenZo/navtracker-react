@@ -18,7 +18,7 @@ const Create_vehiculo = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:3001/api/punto_ruta/", punto);
+            await axios.post("http://18.118.253.191/api/vehiculo/", punto);
             alert("Punto de ruta registrado correctamente");
             setPunto({
                 nombre: "",

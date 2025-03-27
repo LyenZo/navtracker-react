@@ -19,7 +19,7 @@ const Edit_ruta = () => {
     });
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/rtua/${id_ruta}`)
+        axios.get(`http://18.118.253.191/api/rtua/${id_ruta}`)
             .then(response => setRuta(response.data))
             .catch(error => console.error(error));
     }, [id_ruta]);
@@ -30,7 +30,7 @@ const Edit_ruta = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:3001/api/ruta/${id_ruta}`, ruta)
+        axios.put(`http://18.118.253.191/api/ruta/${id_ruta}`, ruta)
         .then(() => {
             alert("Ruta actualizado");
             navigate("/c_ruta"); 

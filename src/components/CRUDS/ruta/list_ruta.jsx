@@ -10,13 +10,13 @@ const R_ruta = () => {
     const [rutasPerPage, setRutasPerPage] = useState(5); 
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/ruta/")
+        axios.get("http://18.118.253.191/api/ruta/")
             .then(response => setRutas(response.data))
             .catch(error => console.error(error));
     }, []);
 
     const handleDelete = (id_ruta) => {
-        axios.delete(`http://localhost:3001/api/ruta/${id_ruta}`)
+        axios.delete(`http://18.118.253.191/api/ruta/${id_ruta}`)
             .then(() => setRutas(rutas.filter(ruta => ruta.id_ruta !== id_ruta)))
             .catch(error => console.error(error));
     };

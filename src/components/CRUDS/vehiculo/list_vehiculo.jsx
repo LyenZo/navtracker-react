@@ -8,13 +8,13 @@ const R_vehiculos = () => {
     const [vehiculosPerPage, setVehiculosPerPage] = useState(5); // Vehículos por página
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/vehiculo/")
+        axios.get("http://18.118.253.191/api/vehiculo/")
             .then(response => setVehiculos(response.data))
             .catch(error => console.error(error));
     }, []);
 
     const handleDelete = (id_vehiculo) => {
-        axios.delete(`http://localhost:3001/api/vehiculo/${id_vehiculo}`)
+        axios.delete(`http://18.118.253.191/api/vehiculo/${id_vehiculo}`)
             .then(() => setVehiculos(vehiculos.filter(vehiculo => vehiculo.id_vehiculo !== id_vehiculo)))
             .catch(error => console.error(error));
     };

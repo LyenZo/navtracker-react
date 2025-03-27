@@ -17,7 +17,7 @@ const RestablecerPassword = () => {
         setMessage("");
 
         try {
-            const response = await axios.post(`http://localhost:3001/api/restablecer-password/${token}`, {
+            const response = await axios.post(`http://18.118.253.191/api/restablecer-password/${token}`, {
                 newPassword
             });
 
