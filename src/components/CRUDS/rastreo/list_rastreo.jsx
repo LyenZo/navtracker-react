@@ -28,9 +28,9 @@ const R_rastreo = () => {
     }, []);
 
     // Función para manejar la eliminación de un rastreo
-    const handleDelete = (id_rastreo) => {
-        axios.delete(`http://localhost:3001/api/gps/${id_rastreo}`)
-            .then(() => setRastreos(rastreos.filter(rastreo => rastreo.id_rastreo !== id_rastreo)))
+    const handleDelete = (id_gps) => {
+        axios.delete(`http://localhost:3001/api/gps/${id_gps}`)
+            .then(() => setRastreos(rastreos.filter(rastreo => rastreo.id_gps !== id_gps)))
             .catch(error => console.error(error));
     };
 
@@ -53,13 +53,13 @@ const R_rastreo = () => {
             <table className="table table-striped table-bordered custom-table">
                 <thead>
                     <tr>
-                        <th>ID Rastreo</th>
-                        <th>Latitud</th>
-                        <th>Longitud</th>
-                        <th>Altitud</th>
-                        <th>Velocidad</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID Rastreo</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Latitud</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Longitud</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Altitud</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Velocidad</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Editar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -97,6 +97,7 @@ const R_rastreo = () => {
                                 <button 
                                     className="page-link" 
                                     onClick={() => paginate(number)}
+                                    style={{ color: "white", backgroundColor: "#1F6527", borderColor: "#1F6527" }}
                                 >
                                     {number}
                                 </button>

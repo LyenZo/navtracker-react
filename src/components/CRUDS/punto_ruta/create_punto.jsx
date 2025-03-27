@@ -40,7 +40,7 @@ const Create_punto = () => {
     };
 
     return (
-        <div className="container mt-0">
+        <div className="container mt-0 mb-0">
             <h2 className="text-center mb-4">Registro de Punto de ruta</h2>
             <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm">
                 <div className="mb-3">
@@ -87,7 +87,7 @@ const Create_punto = () => {
                         className="form-control"
                     />
                 </div>
-                <button type="submit" className="btn btn-primary w-100 mb-3">
+                <button type="submit" className="btn w-100 mb-3" style={{color:"white",backgroundColor:"#1F6527"}}>
                     Registrar Punto de ruta
                 </button>
             </form>

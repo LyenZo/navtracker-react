@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import * as XLSX from 'xlsx';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from 'react-router-dom';  // Importa useNavigate
 
 const Excel_usuario = () => {
   const [file, setFile] = useState(null);
+  const navigate = useNavigate();  // Inicializa useNavigate
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -76,7 +78,7 @@ const Excel_usuario = () => {
       <div className="text-center">
         <button 
           onClick={handleUpload} 
-          className="btn btn-primary btn-lg"
+          className="btn" style={{color:"white",backgroundColor:"#1F6527"}}
         >
           Subir
         </button>

@@ -58,7 +58,7 @@ const Excel_usuario = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 ">
       <h2 className="text-center mb-4">Cargar datos desde Excel</h2>
 
       <div className="mb-3">
@@ -75,7 +75,7 @@ const Excel_usuario = () => {
       <div className="text-center">
         <button 
           onClick={handleUpload} 
-          className="btn btn-primary btn-lg"
+          className="btn "style={{color:"white",backgroundColor:"#1F6527"}}
         >
           Subir
         </button>

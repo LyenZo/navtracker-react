@@ -76,7 +76,7 @@ const Excel_rastreo = () => {
       <div className="text-center">
         <button 
           onClick={handleUpload} 
-          className="btn btn-primary btn-lg"
+          className="btn" style={{color:"white",backgroundColor:"#1F6527"}}
         >
           Subir
         </button>

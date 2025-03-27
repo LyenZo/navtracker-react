@@ -52,8 +52,8 @@ const Excel_usuario = () => {
   };
 
   return (
-    <div className="container custom-container">
-      <h2 className="text-center mb-4"style={{color:"black"}}>Cargar datos desde Excel</h2>
+    <div className="container " style={{marginBottom:"100px"}}>
+      <h2 className="text-center mb-4">Cargar datos desde Excel</h2>
 
       <div className="mb-3">
         <label htmlFor="fileInput" className="form-label">Selecciona el archivo Excel</label>
@@ -69,52 +69,11 @@ const Excel_usuario = () => {
       <div className="text-center">
         <button 
           onClick={handleUpload} 
-          className="btn btn-primary btn-lg custom-button"
+          className="btn" style={{color:"white",backgroundColor:"#1F6527"}}
         >
           Subir
         </button>
       </div>
-
-      {/* Estilos añadidos */}
-      <style jsx>{`
-        .custom-container {
-          max-width: 600px;
-          margin: auto;
-          padding-top: 50px;
-          padding-bottom: 50px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          border-radius: 10px;
-          background-color: #f9f9f9;
-        }
-
-        h2 {
-          color: #4CAF50;
-          font-size: 2rem;
-          font-weight: bold;
-        }
-
-        .custom-input {
-          border-radius: 5px;
-          padding: 10px;
-          font-size: 16px;
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .custom-button {
-          margin-top: 20px;
-          padding: 12px 30px;
-          font-size: 16px;
-          background-color: #007bff;
-          color: white;
-          border-radius: 5px;
-          border: none;
-          transition: background-color 0.3s ease;
-        }
-
-        .custom-button:hover {
-          background-color: #0056b3;
-        }
-      `}</style>
     </div>
   );
 };

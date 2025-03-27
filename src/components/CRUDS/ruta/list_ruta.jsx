@@ -39,18 +39,18 @@ const R_ruta = () => {
             <table className="table table-striped table-bordered custom-table">
                 <thead>
                     <tr>
-                        <th>ID Ruta</th>
-                        <th>ID Conductor</th>
-                        <th>ID Pasajero</th>
-                        <th>Latitud Inicio</th>
-                        <th>Longitud Inicio</th>
-                        <th>Latitud Final</th>
-                        <th>Longitud Final</th>
-                        <th>Fecha Inicio</th>
-                        <th>Fecha Final</th>
-                        <th>Distancia</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID Ruta</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID Conductor</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID Pasajero</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Latitud Inicio</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Longitud Inicio</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Latitud Final</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Longitud Final</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Fecha Inicio</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Fecha Final</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Distancia</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Editar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -93,6 +93,7 @@ const R_ruta = () => {
                                 <button 
                                     className="page-link" 
                                     onClick={() => paginate(number)}
+                                    style={{ color: "white", backgroundColor: "#1F6527", borderColor: "#1F6527" }}
                                 >
                                     {number}
                                 </button>

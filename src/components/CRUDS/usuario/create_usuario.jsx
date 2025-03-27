@@ -54,7 +54,7 @@ const C_usuario = () => {
     };
 
     return (
-        <div className="contenedor">
+        <div className="container mb-0">
             <h2 className="text-center mb-4">Registro de Usuario</h2>
             <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm">
                 <div className="mb-3">
@@ -155,10 +155,10 @@ const C_usuario = () => {
                     />
                 </div>
 
-                <button type="submit" className="btn btn-primary w-100 mb-3" style={{backgroundColor:"#1F6527", borderColor:"green"}}>
+                <button type="submit" className="btn  w-100 mb-3" style={{color:"white",backgroundColor:"#1F6527"}}>
                     Registrar Usuario
                 </button>
-                <button onClick={handleNavigate} className="btn btn-secondary w-100" >Insertar datos desde Excel</button>
+                <button onClick={handleNavigate} className="btn w-100" style={{color:"white",backgroundColor:"#1F6527"}}>Insertar datos desde Excel</button>
             </form>
         </div>
     );

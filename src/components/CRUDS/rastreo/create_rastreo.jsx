@@ -44,7 +44,7 @@ const Create_rastreo = () => {
     };
 
     return (
-        <div className="container mt-0">
+        <div className="container mt-0 mb-0">
             <h2 className="text-center mb-4">Registro de Rastreo</h2>
             <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm">
                 <div className="mb-3">
@@ -113,14 +113,14 @@ const Create_rastreo = () => {
                         className="form-control"
                     />
                 </div>
-                <button type="submit" className="btn btn-primary w-100 mb-3">
+                <button type="submit" className="btn w-100 mb-3" style={{color:"white",backgroundColor:"#1F6527"}}>
                     Registrar Rastreo
                 </button>
             </form>
 
             <button 
                 onClick={handleNavigate} 
-                className="btn btn-secondary w-100"
+                className="btn w-100 mb-3" style={{color:"white",backgroundColor:"#1F6527"}}
             >
                 Insertar datos desde Excel
             </button>

@@ -48,12 +48,11 @@ const Create_tipo = () => {
                         className="form-control"
                     />
                 </div>
-                <button type="submit" className="btn btn-primary w-100 mb-3">
+                <button type="submit" className="btn w-100 mb-3" style={{color:"white",backgroundColor:"#1F6527"}}>
                     Registrar tipo de Usuario
                 </button>
             </form>
 
-          
         </div>
     );
 };

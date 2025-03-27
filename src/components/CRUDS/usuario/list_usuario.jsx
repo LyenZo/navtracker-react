@@ -110,12 +110,12 @@ const R_usuario = () => {
     };
 
     return (
-        <div className="container mt-4">
+        <div className="container mt-4 mb-0">
             <h2 className="text-center mb-4">Lista de Usuarios</h2>
 
             {/* Botón para exportar a PDF */}
             <div className="text-right mb-4">
-                <button className="btn btn-primary" onClick={exportToPDF}>
+                <button className="btn" style={{color:"white",backgroundColor:"#1F6527"}} onClick={exportToPDF}>
                     Exportar a PDF
                 </button>
             </div>
@@ -190,51 +190,56 @@ const R_usuario = () => {
                 </div>
 
                 {/* Tabla */}
+            <div className="table-responsive">
                 <table className="table table-striped table-bordered">
                     <thead className="table-dark">
                         <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Apellido Paterno</th>
-                            <th>Apellido Materno</th>
-                            <th>Email</th>
-                            <th>Tipo Usuario</th>
-                            <th>Vehículo</th>
-                            <th>Editar</th>
-                            <th>Eliminar</th>
+                            <th style={{color:"white",backgroundColor:"#1F6527"}}>ID</th>
+                            <th style={{color:"white",backgroundColor:"#1F6527"}}>Nombre</th>
+                            <th style={{color:"white",backgroundColor:"#1F6527"}}>Apellido Paterno</th>
+                            <th style={{color:"white",backgroundColor:"#1F6527"}}>Apellido Materno</th>
+                            <th style={{color:"white",backgroundColor:"#1F6527"}}>Email</th>
+                            <th style={{color:"white",backgroundColor:"#1F6527"}}>Tipo Usuario</th>
+                            <th style={{color:"white",backgroundColor:"#1F6527"}}>Vehículo</th>
+                            <th style={{color:"white",backgroundColor:"#1F6527"}}>Editar</th>
+                            <th style={{color:"white",backgroundColor:"#1F6527"}}>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {currentUsuarios.map(usuario => (
-                            <tr key={usuario.id_u}>
-                                <td>{usuario.id_u}</td>
-                                <td>{usuario.nombre}</td>
-                                <td>{usuario.ap_pat}</td>
-                                <td>{usuario.ap_mat}</td>
-                                <td>{usuario.email}</td>
-                                <td>{usuario.id_tipo}</td>
-                                <td>{usuario.id_vehiculo}</td>
-                                <td>
-                                    <Link to={`/edit_usuario/${usuario.id_u}`} className="btn btn-warning btn-sm">
-                                        Editar
-                                    </Link>
-                                </td>
-                                <td>
-                                    <button onClick={() => handleDelete(usuario.id_u)} className="btn btn-danger btn-sm">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                    {currentUsuarios.map(usuario => (
+                        <tr key={usuario.id_u}>
+                            <td>{usuario.id_u}</td>
+                            <td>{usuario.nombre}</td>
+                            <td>{usuario.ap_pat}</td>
+                            <td>{usuario.ap_mat}</td>
+                            <td>{usuario.email}</td>
+                            <td>{usuario.id_tipo}</td>
+                            <td>{usuario.id_vehiculo}</td>
+                            <td>
+            <Link to={`/edit_usuario/${usuario.id_u}`} className="btn btn-warning btn-sm">
+            Editar
+            </Link>
+        </td>
+        <td>
+            <button onClick={() => handleDelete(usuario.id_u)} className="btn btn-danger btn-sm">
+            Eliminar
+            </button>
+        </td>
+        </tr>
+    ))}
+    </tbody>
+</table>
+</div>
+
 
                 {/* Paginación */}
                 <nav>
                     <ul className="pagination justify-content-center">
                         {pageNumbers.map(number => (
                             <li key={number} className="page-item">
-                                <button onClick={() => paginate(number)} className="page-link">
+                                <button onClick={() => paginate(number)} className="page-link"
+                                    style={{ color: "white", backgroundColor: "#1F6527", borderColor: "#1F6527" }}>
+                                    
                                     {number}
                                 </button>
                             </li>

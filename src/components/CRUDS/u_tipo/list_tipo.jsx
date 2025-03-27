@@ -34,15 +34,15 @@ const R_tipo = () => {
     }
 
     return (
-        <div className="container">
+        <div>
             <h2 className="table-title"style={{color:"black"}}>Lista de Tipos de Usuario</h2>
             <table className="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Tipo</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Tipo</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Editar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,6 +72,7 @@ const R_tipo = () => {
                                 <button 
                                     className={`page-link ${currentPage === number ? 'active' : ''}`}
                                     onClick={() => paginate(number)}
+                                    style={{ color: "white", backgroundColor: "#1F6527", borderColor: "#1F6527" }}
                                 >
                                     {number}
                                 </button>

@@ -34,7 +34,7 @@ const Create_vehiculo = () => {
     };
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-0 mb-5">
             <h2 className="text-center mb-4">Registro de vehiculo</h2>
             <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow-sm">
                 <div className="mb-3">
@@ -48,14 +48,14 @@ const Create_vehiculo = () => {
                         className="form-control"
                     />
                 </div>
-                <button type="submit" className="btn btn-primary w-100 mb-3">
+                <button type="submit" className="btn  w-100 mb-3" style={{color:"white",backgroundColor:"#1F6527"}}>
                     Registrar Vehiculo
                 </button>
             </form>
 
             <button 
                 onClick={handleNavigate} 
-                className="btn btn-secondary w-100"
+                className="btn  w-100" style={{color:"white",backgroundColor:"#1F6527"}}
             >
                 Insertar datos desde Excel
             </button>

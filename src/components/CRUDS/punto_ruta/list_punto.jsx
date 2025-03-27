@@ -36,16 +36,16 @@ const List_punto = () => {
         <div className="container custom-container">
             <h2 className="text-center">Lista de Puntos</h2>
 
-            <table className="table table-striped table-bordered custom-table">
+            <table className="table table-striped table-bordered custom-table" >
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Latitud</th>
-                        <th>Longitud</th>
-                        <th>Dirección</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Nombre</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Latitud</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Longitud</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Dirección</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Editar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,21 +76,23 @@ const List_punto = () => {
 
             {/* Paginación */}
             <div className="pagination-container">
-                <nav>
-                    <ul className="pagination justify-content-center">
-                        {pageNumbers.map(number => (
-                            <li key={number} className="page-item">
-                                <button 
-                                    className="page-link" 
-                                    onClick={() => paginate(number)}
-                                >
-                                    {number}
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
+            <nav>
+                <ul className="pagination justify-content-center">
+                {pageNumbers.map(number => (
+                    <li key={number} className="page-item">
+                    <button
+                        className="page-link"
+                        onClick={() => paginate(number)}
+                        style={{ color: "white", backgroundColor: "#1F6527", borderColor: "#1F6527" }} // Aplicar estilo aquí
+                    >
+                        {number}
+                    </button>
+                    </li>
+                ))}
+                </ul>
+            </nav>
             </div>
+
 
         </div>
     );

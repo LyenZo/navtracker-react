@@ -32,14 +32,14 @@ const List_vehiculo = () => {
 
     return (
         <div>
-            <h2>Lista de Vehículos</h2>
-            <table>
+            <h2 className="table-title"style={{color:"black"}}>Lista de Vehículos</h2>
+            <table className="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th >ID</th>
-                        <th >Vehículo</th>
-                        <th >Editar</th>
-                        <th >Eliminar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Vehículo</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Editar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,11 +49,11 @@ const List_vehiculo = () => {
                             <td >{vehiculo.vehiculo}</td>
                             <td >
                                 <Link to={`/edit_vehiculo/${vehiculo.id_vehiculo}`}>
-                                    <button >Editar</button>
+                                    <button className="btn btn-warning">Editar</button>
                                 </Link>
                             </td>
                             <td>
-                                <button onClick={() => handleDelete(vehiculo.id_vehiculo)}>Eliminar</button>
+                                <button className="btn btn-danger" onClick={() => handleDelete(vehiculo.id_vehiculo)}>Eliminar</button>
                             </td>
                         </tr>
                     ))}
@@ -61,13 +61,15 @@ const List_vehiculo = () => {
             </table>
 
             {/* Paginación */}
-            <div >
+            <div className="pagination-container">
                 <nav>
-                    <ul >
+                    <ul className="pagination" >
                         {pageNumbers.map(number => (
-                            <li key={number}>
+                            <li key={number} className="page-item">
                                 <button 
+                                    className={`page-link ${currentPage === number ? 'active' : ''}`}
                                     onClick={() => paginate(number)} 
+                                    style={{ color: "white", backgroundColor: "#1F6527", borderColor: "#1F6527" }}
                                     
                                 >
                                     {number}

@@ -30,3 +30,75 @@ return (
 };
 
 export default N_global_m;
+
+
+
+
+<table className="table table-striped table-bordered">
+                    <thead className="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Email</th>
+                            <th>Tipo Usuario</th>
+                            <th>Vehículo</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {currentUsuarios.map(usuario => (
+                            <tr key={usuario.id_u}>
+                                <td>{usuario.id_u}</td>
+                                <td>{usuario.nombre}</td>
+                                <td>{usuario.ap_pat}</td>
+                                <td>{usuario.ap_mat}</td>
+                                <td>{usuario.email}</td>
+                                <td>{usuario.id_tipo}</td>
+                                <td>{usuario.id_vehiculo}</td>
+                                <td>
+                                    <Link to={`/edit_usuario/${usuario.id_u}`} className="btn btn-warning btn-sm">
+                                        Editar
+                                    </Link>
+                                </td>
+                                <td>
+                                    <button onClick={() => handleDelete(usuario.id_u)} className="btn btn-danger btn-sm">
+                                        Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+
+
+
+                <h2>Lista de Vehículos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Vehículo</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Editar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {currentVehiculos.map(vehiculo => (
+                        <tr key={vehiculo.id_vehiculo} >
+                            <td >{vehiculo.id_vehiculo}</td>
+                            <td >{vehiculo.vehiculo}</td>
+                            <td >
+                                <Link to={`/edit_vehiculo/${vehiculo.id_vehiculo}`}>
+                                    <button >Editar</button>
+                                </Link>
+                            </td>
+                            <td>
+                                <button onClick={() => handleDelete(vehiculo.id_vehiculo)}>Eliminar</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
