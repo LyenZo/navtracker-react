@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as XLSX from 'xlsx';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Excel_usuario = () => {
+const Excel_vehiculo = () => {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -30,9 +30,7 @@ const Excel_usuario = () => {
 
       try {
         for (const row of rows) {
-          const { vehiculo } = row; // Extraemos solo el campo 'vehiculo'
-
-          // Verificamos si 'vehiculo' existe para evitar enviar datos vacíos
+          const { vehiculo } = row; 
           if (vehiculo) {
             await axios.post('http://localhost:3001/api/vehiculo', { vehiculo });
           }
@@ -74,4 +72,4 @@ const Excel_usuario = () => {
   );
 };
 
-export default Excel_usuario;
+export default Excel_vehiculo;

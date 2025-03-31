@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Edit_rastreo = () => {
     const { id_rastreo } = useParams();
@@ -39,18 +40,41 @@ const Edit_rastreo = () => {
     };
 
     return (
-        
-            <form onSubmit={handleSubmit}>
-                <h1>Editar Rastreo</h1>
-                <input type="text" name="id_ruta" placeholder="ID ruta" value={rastreo.id_ruta} onChange={handleChange} required />
-                <input type="text" name="latitud" placeholder="Latitud" value={rastreo.latitud} onChange={handleChange} required />
-                <input type="text" name="longitud" placeholder="Longitud" value={rastreo.longitud} onChange={handleChange} required />
-                <input type="text" name="distancia" placeholder="Distancia" value={rastreo.distancia} onChange={handleChange} required />
-                <input type="text" name="id_punto" placeholder="ID punto" value={rastreo.id_punto} onChange={handleChange} required />
-                <button type="submit">Actualizar rastreo</button>
-                <button type="button" onClick={handleRedirect}>Volver a rastreos</button>
-            </form>
-        
+        <div>
+            <div className="card shadow p-4" style={{ backgroundColor: "#d4edda" }}>
+                <h2 className="text-center text-success">Editar Rastreo</h2>
+                <form onSubmit={handleSubmit} className="mt-4">
+                    <div className="mb-3">
+                        <label className="form-label">ID Ruta</label>
+                        <input type="text" className="form-control" name="id_ruta" value={rastreo.id_ruta} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Latitud</label>
+                        <input type="text" className="form-control" name="latitud" value={rastreo.latitud} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Longitud</label>
+                        <input type="text" className="form-control" name="longitud" value={rastreo.longitud} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Distancia</label>
+                        <input type="text" className="form-control" name="distancia" value={rastreo.distancia} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Fecha</label>
+                        <input type="datetime-local" className="form-control" name="fecha" value={rastreo.fecha} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">ID Punto</label>
+                        <input type="text" className="form-control" name="id_punto" value={rastreo.id_punto} onChange={handleChange} required />
+                    </div>
+                    <div className=" justify-content-between">
+                        <button type="submit" className="btn btn-success">Actualizar Rastreo</button>
+                        <button type="button" className="btn btn-secondary" onClick={handleRedirect}>Volver</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     );
 };
 

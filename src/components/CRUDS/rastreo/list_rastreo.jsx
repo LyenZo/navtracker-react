@@ -11,7 +11,7 @@ const R_rastreo = () => {
 
     // Función para obtener los rastreos desde la API
     const fetchRastreos = () => {
-        axios.get("http://localhost:3001/api/gps/")
+        axios.get("http://localhost:3001/api/rastreo/")
             .then(response => setRastreos(response.data))
             .catch(error => console.error(error));
     };
@@ -28,9 +28,9 @@ const R_rastreo = () => {
     }, []);
 
     // Función para manejar la eliminación de un rastreo
-    const handleDelete = (id_gps) => {
-        axios.delete(`http://localhost:3001/api/gps/${id_gps}`)
-            .then(() => setRastreos(rastreos.filter(rastreo => rastreo.id_gps !== id_gps)))
+    const handleDelete = (id_rastreo) => {
+        axios.delete(`http://localhost:3001/api/rastreo/${id_rastreo}`)
+            .then(() => setRastreos(rastreos.filter(rastreo => rastreo.id_rastreo !== id_rastreo)))
             .catch(error => console.error(error));
     };
 
@@ -54,30 +54,34 @@ const R_rastreo = () => {
                 <thead>
                     <tr>
                         <th style={{color:"white",backgroundColor:"#1F6527"}}>ID Rastreo</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID Ruta</th>
                         <th style={{color:"white",backgroundColor:"#1F6527"}}>Latitud</th>
                         <th style={{color:"white",backgroundColor:"#1F6527"}}>Longitud</th>
-                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Altitud</th>
-                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Velocidad</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Distancia</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Fecha</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID Punto</th>
                         <th style={{color:"white",backgroundColor:"#1F6527"}}>Editar</th>
                         <th style={{color:"white",backgroundColor:"#1F6527"}}>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
                     {currentRastreos.map(rastreo => (
-                        <tr key={rastreo.id_gps}>
-                            <td>{rastreo.id_gps}</td>
+                        <tr key={rastreo.id_rastreo}>
+                            <td>{rastreo.id_rastreo}</td>
+                            <td>{rastreo.id_ruta}</td>
                             <td>{rastreo.latitud}</td>
                             <td>{rastreo.longitud}</td>
-                            <td>{rastreo.altitud}</td>
-                            <td>{rastreo.velocidad}</td>
+                            <td>{rastreo.distancia}</td>
+                            <td>{rastreo.fecha}</td>
+                            <td>{rastreo.id_punto}</td>
                             <td>
                                 <Link to={`/edit_rastreo/${rastreo.id_rastreo}`}>
-                                    <button className="btn btn-warning btn-sm">Editar</button>
+                                    <button className="btn btn-success btn-sm">Editar</button>
                                 </Link>
                             </td>
                             <td>
                                 <button 
-                                    className="btn btn-danger btn-sm" 
+                                    className="btn btn-success btn-sm" 
                                     onClick={() => handleDelete(rastreo.id_rastreo)}
                                 >
                                     Eliminar

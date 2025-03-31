@@ -44,9 +44,10 @@ import Perfil from "./pages/perfil";
 import Sesion from "./pages/sesion";
 import Login_p from "./pages/login_p"
 import Create_usuario_p from "./pages/create_usuario_p";
-
-
-
+//ubicacion
+import Ubicacion from "./pages/ubicacion_p";
+//Rastreos
+import Rastreos from "./pages/rastreos_p";
 
 
 
@@ -94,6 +95,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/perfil" element={<Perfil />} />
       {/* <!-- Movil -->*/}
       <Route path="/sesion" element={<Sesion />} />
+      {/* <!-- Ubicacion -->*/}
+      <Route path="/ubicacion" element={<Ubicacion />} />
+      {/* <!-- Rastreos -->*/}
+      <Route path="/rastreos" element={<Rastreos />} />
     </Routes>
   </BrowserRouter>
 )

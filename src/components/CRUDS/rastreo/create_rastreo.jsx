@@ -117,13 +117,6 @@ const Create_rastreo = () => {
                     Registrar Rastreo
                 </button>
             </form>
-
-            <button 
-                onClick={handleNavigate} 
-                className="btn w-100 mb-3" style={{color:"white",backgroundColor:"#1F6527"}}
-            >
-                Insertar datos desde Excel
-            </button>
         </div>
     );
 };

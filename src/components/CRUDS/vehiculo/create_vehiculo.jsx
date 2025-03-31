@@ -52,13 +52,6 @@ const Create_vehiculo = () => {
                     Registrar Vehiculo
                 </button>
             </form>
-
-            <button 
-                onClick={handleNavigate} 
-                className="btn  w-100" style={{color:"white",backgroundColor:"#1F6527"}}
-            >
-                Insertar datos desde Excel
-            </button>
         </div>
     );
 };

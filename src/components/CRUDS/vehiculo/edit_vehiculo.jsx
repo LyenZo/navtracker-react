@@ -5,9 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Edit_vehiculo = () => {
     const { id_vehiculo } = useParams();
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
     const [vehiculo, setVehiculo] = useState({
-        vehiculo:""
+        vehiculo: ""
     });
 
     useEffect(() => {
@@ -23,45 +23,39 @@ const Edit_vehiculo = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.put(`http://localhost:3001/api/vehiculo/${id_vehiculo}`, vehiculo)
-        .then(() => {
-            alert("Vehiculo actualizado");
-            navigate("/list_vehiculo"); 
-        })
-        .catch(error => console.error(error));
+            .then(() => {
+                alert("Vehículo actualizado");
+                navigate("/crud_vehiculo");
+            })
+            .catch(error => console.error(error));
     };
 
     const handleRedirect = () => {
-        navigate("/crud_vehiculo"); 
+        navigate("/crud_vehiculo");
     };
 
     return (
-        <div className="container mt-5">
-            <h2 className="text-center mb-4">Editar Vehiculo</h2>
-            <form onSubmit={handleSubmit} className="p-4 border rounded shadow">
-                <div className="mb-3">
-                    <label htmlFor="nombre" className="form-label">Vehiculo</label>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        id="vehiculo" 
-                        name="vehiculo" 
-                        placeholder="Vehiculo" 
-                        value={vehiculo.vehiculo} 
-                        onChange={handleChange} 
-                        required 
-                    />
-                </div>
-                <div className="d-flex justify-content-between">
-                    <button type="submit" className="btn btn-primary">Actualizar Vehiculo</button>
-                    <button 
-                        type="button" 
-                        className="btn btn-secondary" 
-                        onClick={handleRedirect}
-                    >
-                        Volver a Usuarios
-                    </button>
-                </div>
-            </form>
+        <div>
+            <div className="card shadow p-4" style={{ backgroundColor: "#d4edda" }}>
+                <h2 className="text-center text-success">Editar Vehículo</h2>
+                <form onSubmit={handleSubmit} className="mt-4">
+                    <div className="mb-3">
+                        <label className="form-label">Vehículo</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="vehiculo"
+                            value={vehiculo.vehiculo}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="justify-content-between">
+                        <button type="submit" className="btn btn-success">Actualizar Vehículo</button>
+                        <button type="button" className="btn btn-secondary" onClick={handleRedirect}>Volver</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

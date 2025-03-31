@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Edit_punto = () => {
     const { id_punto } = useParams();
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
     const [punto, setPunto] = useState({
         nombre: "",
         latitud: "",
         longitud: "",
         direccion: ""
-        
     });
 
     useEffect(() => {
@@ -26,29 +26,45 @@ const Edit_punto = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.put(`http://localhost:3001/api/punto_ruta/${id_punto}`, punto)
-        .then(() => {
-            alert("Punto ruta actualizado");
-            navigate("/crud_punto"); 
-        })
-        .catch(error => console.error(error));
+            .then(() => {
+                alert("Punto de ruta actualizado");
+                navigate("/crud_punto");
+            })
+            .catch(error => console.error(error));
     };
 
     const handleRedirect = () => {
-        navigate("/crud_punto"); 
+        navigate("/crud_punto");
     };
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <h1>Editar Punto</h1>
-                <input type="text" name="nombre" placeholder="Nombre" value={punto.nombre} onChange={handleChange} required />
-                <input type="text" name="latitud" placeholder="Latitud" value={punto.latitud} onChange={handleChange} required />
-                <input type="text" name="longitud" placeholder="Longitud" value={punto.longitud} onChange={handleChange} required />
-                <input type="text" name="direccion" placeholder="Dirección" value={punto.direccion} onChange={handleChange} required />
-                <button type="submit">Actualizar punto de ruta</button>
-                <button type="button" onClick={handleRedirect}>Volver a Punto de ruta</button>
-            </form>
-        </>
+        <div className="">
+            <div className="card shadow p-4" style={{ backgroundColor: "#d4edda" }}>
+                <h1 className="text-center text-success">Editar Punto</h1>
+                <form onSubmit={handleSubmit} className="mt-4">
+                    <div className="mb-3">
+                        <label className="form-label">Nombre</label>
+                        <input type="text" className="form-control" name="nombre" value={punto.nombre} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Latitud</label>
+                        <input type="text" className="form-control" name="latitud" value={punto.latitud} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Longitud</label>
+                        <input type="text" className="form-control" name="longitud" value={punto.longitud} onChange={handleChange} required />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Dirección</label>
+                        <input type="text" className="form-control" name="direccion" value={punto.direccion} onChange={handleChange} required />
+                    </div>
+                    <div className=" justify-content-between">
+                        <button type="submit" className="btn btn-success">Actualizar Punto</button>
+                        <button type="button" className="btn btn-secondary" onClick={handleRedirect}>Volver</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     );
 };
 

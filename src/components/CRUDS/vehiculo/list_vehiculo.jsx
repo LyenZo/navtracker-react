@@ -49,11 +49,11 @@ const List_vehiculo = () => {
                             <td >{vehiculo.vehiculo}</td>
                             <td >
                                 <Link to={`/edit_vehiculo/${vehiculo.id_vehiculo}`}>
-                                    <button className="btn btn-warning">Editar</button>
+                                    <button className="btn btn-success">Editar</button>
                                 </Link>
                             </td>
                             <td>
-                                <button className="btn btn-danger" onClick={() => handleDelete(vehiculo.id_vehiculo)}>Eliminar</button>
+                                <button className="btn btn-success" onClick={() => handleDelete(vehiculo.id_vehiculo)}>Eliminar</button>
                             </td>
                         </tr>
                     ))}

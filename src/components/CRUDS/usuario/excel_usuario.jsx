@@ -30,12 +30,7 @@ const Excel_usuario = () => {
 
       try {
         for (const row of rows) {
-          const { nombre, ap_pat, ap_mat, fn, email, password } = row;
-
-          const n_tel = '1234567890'; // Número de teléfono, puedes personalizarlo
-          const id_tipo = '1'; // Valor por defecto para el tipo
-          const id_vehiculo = '2'; // Valor por defecto para el vehículo
-
+          const { nombre, ap_pat, ap_mat, email, password, n_tel, id_tipo, id_vehiculo } = row;
           const usuario = {
             nombre,
             ap_pat,

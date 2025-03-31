@@ -52,11 +52,11 @@ const R_tipo = () => {
                             <td>{t_usuario.tipo}</td>
                             <td>
                                 <Link to={`/edit_tipo/${t_usuario.id_tipo}`}>
-                                    <button className="btn btn-warning">Editar</button>
+                                    <button className="btn btn-success">Editar</button>
                                 </Link>
                             </td>
                             <td>
-                                <button className="btn btn-danger" onClick={() => handleDelete(t_usuario.id_tipo)}>Eliminar</button>
+                                <button className="btn btn-success" onClick={() => handleDelete(t_usuario.id_tipo)}>Eliminar</button>
                             </td>
                         </tr>
                     ))}

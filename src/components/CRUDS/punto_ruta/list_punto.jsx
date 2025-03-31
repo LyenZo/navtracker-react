@@ -58,12 +58,12 @@ const List_punto = () => {
                             <td>{punto.direccion}</td>
                             <td>
                                 <Link to={`/edit_punto/${punto.id_punto}`}>
-                                    <button className="btn btn-warning btn-sm">Editar</button>
+                                    <button className="btn btn-success btn-sm" style={{color:"white"}}>Editar</button>
                                 </Link>
                             </td>
                             <td>
                                 <button 
-                                    className="btn btn-danger btn-sm" 
+                                    className="btn btn-success" 
                                     onClick={() => handleDelete(punto.id_punto)}
                                 >
                                     Eliminar

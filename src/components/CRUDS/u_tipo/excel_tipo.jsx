@@ -4,7 +4,7 @@ import * as XLSX from 'xlsx';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from 'react-router-dom';  // Importa useNavigate
 
-const Excel_usuario = () => {
+const Excel_tipo = () => {
   const [file, setFile] = useState(null);
   const navigate = useNavigate();  // Inicializa useNavigate
 
@@ -78,4 +78,4 @@ const Excel_usuario = () => {
   );
 };
 
-export default Excel_usuario;
+export default Excel_tipo;

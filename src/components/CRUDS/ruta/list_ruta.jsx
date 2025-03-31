@@ -67,13 +67,13 @@ const R_ruta = () => {
                             <td>{ruta.f_final}</td>
                             <td>{ruta.distancia}</td>
                             <td>
-                                <Link to={`/editar_ruta/${ruta.id_ruta}`}>
-                                    <button className="btn btn-warning btn-sm">Editar</button>
+                                <Link to={`/edit_ruta/${ruta.id_ruta}`}>
+                                    <button className="btn btn-success btn-sm">Editar</button>
                                 </Link>
                             </td>
                             <td>
                                 <button 
-                                    className="btn btn-danger btn-sm" 
+                                    className="btn btn-success btn-sm" 
                                     onClick={() => handleDelete(ruta.id_ruta)}
                                 >
                                     Eliminar

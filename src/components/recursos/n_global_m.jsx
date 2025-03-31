@@ -11,11 +11,11 @@ return (
             <img src="/img/home.png" alt="Logo" className="navbar-logo" />
             <p className="texto">Inicio</p>
         </Link>
-        <Link to="/" className="navbar-brand d-flex flex-column align-items-center me-0">
+        <Link to="/rastreos" className="navbar-brand d-flex flex-column align-items-center me-0">
             <img src="/img/logo_2.png" alt="Logo" className="navbar-img" />
-            <p className="texto">Rastreador</p>
+            <p className="texto">Rastreos</p>
         </Link>
-        <Link to="/" className="navbar-brand d-flex flex-column align-items-center me-0">
+        <Link to="/ubicacion" className="navbar-brand d-flex flex-column align-items-center me-0">
             <img src="/img/rastreo.png" alt="Logo" className="navbar-img" />
             <p className="texto">Ubicación</p>
         </Link>

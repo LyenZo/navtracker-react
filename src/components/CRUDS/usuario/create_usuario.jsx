@@ -158,7 +158,6 @@ const C_usuario = () => {
                 <button type="submit" className="btn  w-100 mb-3" style={{color:"white",backgroundColor:"#1F6527"}}>
                     Registrar Usuario
                 </button>
-                <button onClick={handleNavigate} className="btn w-100" style={{color:"white",backgroundColor:"#1F6527"}}>Insertar datos desde Excel</button>
             </form>
         </div>
     );

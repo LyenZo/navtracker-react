@@ -216,12 +216,12 @@ const R_usuario = () => {
                             <td>{usuario.id_tipo}</td>
                             <td>{usuario.id_vehiculo}</td>
                             <td>
-            <Link to={`/edit_usuario/${usuario.id_u}`} className="btn btn-warning btn-sm">
+            <Link to={`/edit_usuario/${usuario.id_u}`} className="btn btn-success btn-sm">
             Editar
             </Link>
         </td>
         <td>
-            <button onClick={() => handleDelete(usuario.id_u)} className="btn btn-danger btn-sm">
+            <button onClick={() => handleDelete(usuario.id_u)} className="btn btn-success btn-sm">
             Eliminar
             </button>
         </td>

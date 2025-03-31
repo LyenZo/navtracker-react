@@ -4,7 +4,7 @@ import * as XLSX from 'xlsx';
 import "bootstrap/dist/css/bootstrap.min.css";
 import"../../css/bottom_excel.css";
 
-const Excel_usuario = () => {
+const Excel_punto = () => {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -84,4 +84,4 @@ const Excel_usuario = () => {
   );
 };
 
-export default Excel_usuario;
+export default Excel_punto;

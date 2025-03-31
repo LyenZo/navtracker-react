@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import * as XLSX from 'xlsx';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from 'react-router-dom';  // Importa useNavigate
+import { useNavigate } from 'react-router-dom'; 
 
-const Excel_usuario = () => {
+const Excel_ruta = () => {
   const [file, setFile] = useState(null);
-  const navigate = useNavigate();  // Inicializa useNavigate
+  const navigate = useNavigate();  
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -32,24 +32,20 @@ const Excel_usuario = () => {
 
       try {
         for (const row of rows) {
-          const { nombre, ap_pat, ap_mat, fn, email, password } = row;
-
-          const n_tel = '1234567890'; // Número de teléfono, puedes personalizarlo
-          const id_tipo = '1'; // Valor por defecto para el tipo
-          const id_vehiculo = '2'; // Valor por defecto para el vehículo
-
-          const usuario = {
-            nombre,
-            ap_pat,
-            ap_mat,
-            email,
-            password,
-            n_tel,
-            id_tipo,
-            id_vehiculo
+          const { id_conductor, id_pasajero, lat_inicio, lon_inicio, lat_final, lon_final, f_inicio, f_final, distancia} = row;
+          const ruta = {
+            id_conductor,
+            id_pasajero,
+            lat_inicio, 
+            lon_inicio, 
+            lat_final, 
+            lon_final, 
+            f_inicio, 
+            f_final, 
+            distancia
           };
 
-          await axios.post('http://localhost:3001/api/usuario', usuario);
+          await axios.post('http://localhost:3001/api/ruta', ruta);
         }
         alert('Datos cargados correctamente');
       } catch (error) {
@@ -88,4 +84,4 @@ const Excel_usuario = () => {
   );
 };
 
-export default Excel_usuario;
+export default Excel_ruta;
