@@ -54,13 +54,10 @@ const R_rastreo = () => {
                 <thead>
                     <tr>
                         <th style={{color:"white",backgroundColor:"#1F6527"}}>ID Rastreo</th>
-                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID Ruta</th>
                         <th style={{color:"white",backgroundColor:"#1F6527"}}>Latitud</th>
                         <th style={{color:"white",backgroundColor:"#1F6527"}}>Longitud</th>
-                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Distancia</th>
-                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Fecha</th>
-                        <th style={{color:"white",backgroundColor:"#1F6527"}}>ID Punto</th>
-                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Editar</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Hora</th>
+                        <th style={{color:"white",backgroundColor:"#1F6527"}}>Mapa</th>
                         <th style={{color:"white",backgroundColor:"#1F6527"}}>Eliminar</th>
                     </tr>
                 </thead>
@@ -68,15 +65,12 @@ const R_rastreo = () => {
                     {currentRastreos.map(rastreo => (
                         <tr key={rastreo.id_rastreo}>
                             <td>{rastreo.id_rastreo}</td>
-                            <td>{rastreo.id_ruta}</td>
-                            <td>{rastreo.latitud}</td>
-                            <td>{rastreo.longitud}</td>
-                            <td>{rastreo.distancia}</td>
-                            <td>{rastreo.fecha}</td>
-                            <td>{rastreo.id_punto}</td>
+                            <td>{rastreo.lat}</td>
+                            <td>{rastreo.lng}</td>
+                            <td>{rastreo.hora}</td>
                             <td>
-                                <Link to={`/edit_rastreo/${rastreo.id_rastreo}`}>
-                                    <button className="btn btn-success btn-sm">Editar</button>
+                                <Link to={`/mapa_rastreo`}>
+                                    <button className="btn btn-success btn-sm">Mapa</button>
                                 </Link>
                             </td>
                             <td>

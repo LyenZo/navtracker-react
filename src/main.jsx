@@ -48,6 +48,8 @@ import Create_usuario_p from "./pages/create_usuario_p";
 import Ubicacion from "./pages/ubicacion_p";
 //Rastreos
 import Rastreos from "./pages/rastreos_p";
+//Mapa rastreo
+import Map from "./components/CRUDS/rastreo/mapa_rastreo";
 
 
 
@@ -99,6 +101,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/ubicacion" element={<Ubicacion />} />
       {/* <!-- Rastreos -->*/}
       <Route path="/rastreos" element={<Rastreos />} />
+      {/* <!-- Mapa Rastreo -->*/}
+      <Route path="/mapa_rastreo" element={<Map />} />
     </Routes>
   </BrowserRouter>
 )
